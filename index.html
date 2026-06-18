@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteSmith | Professional Web & App Subscription Services</title>
+    <meta name="description" content="SiteSmith is a digital services agency offering website creation, mobile app development, and software assistance. Partner with us for reliable, ongoing subscription packages.">
+    <!-- Google Fonts: Outfit (headings) & Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="logo-link">
+                Site<span>Smith</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#why-us" class="nav-link">Why Us</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#contact" class="nav-link btn-quote-nav" id="quote-nav-link">Get a Quote</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="hero-texture"></div>
+        
+        <div class="hero-container container">
+            <div class="hero-content fade-in">
+                <div class="badge">Digital Infrastructure Partner</div>
+                <h1 class="display-headline">
+                    WE ARE THE 
+                    <span class="inline-capsule">
+                        <span class="capsule-dot"></span>
+                        <span class="capsule-text">npm i sitesmith</span>
+                    </span>
+                    <br>FOUNDATION YOU NEED.
+                </h1>
+                
+                <p class="hero-subheadline">SiteSmith builds high-performance websites, custom mobile apps, and robust backend software systems for companies ready to scale.</p>
+                
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary" id="hero-primary-cta">Book a Free Consultation</a>
+                    <a href="#services" class="btn btn-secondary" id="hero-secondary-cta">View Pricing</a>
+                </div>
+
+                <!-- Secondary Inset Clip Visual tucked near CTA -->
+                <div class="inset-visual">
+                    <div class="inset-header">
+                        <span class="inset-dot"></span>
+                        <span>Terminal</span>
+                    </div>
+                    <div class="inset-body">
+                        <span class="term-prompt">sitesmith:~$</span> <span class="term-text">yarn build --optimize</span>
+                        <span class="term-success">✓ Assets compiled successfully in 142ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-graphic-wrapper fade-in">
+                <div class="parallax-target" id="parallax-target">
+                    <!-- 3D Laptop Device Container -->
+                    <div class="laptop-container">
+                        <!-- Screen (Lid) -->
+                        <div class="laptop-screen">
+                            <div class="screen-glare"></div>
+                            <div class="screen-content">
+                                <div class="screen-header">
+                                    <span class="scr-dot red"></span>
+                                    <span class="scr-dot yellow"></span>
+                                    <span class="scr-dot green"></span>
+                                    <span class="scr-tab active">app.config.ts</span>
+                                </div>
+                                <div class="editor-window">
+                                    <div class="line-nums">
+                                        <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span>
+                                    </div>
+                                    <div class="editor-code">
+                                        <p><span class="tok-kw">import</span> { <span class="tok-fn">defineAgencyConfig</span> } <span class="tok-kw">from</span> <span class="tok-str">'@sitesmith/core'</span>;</p>
+                                        <p><span class="tok-kw">export default</span> <span class="tok-fn">defineAgencyConfig</span>({</p>
+                                        <p>&nbsp;&nbsp;name: <span class="tok-str">'SiteSmith'</span>,</p>
+                                        <p>&nbsp;&nbsp;performance: <span class="tok-str">'ultra-fast'</span>,</p>
+                                        <p>&nbsp;&nbsp;architecture: <span class="tok-str">'scalable'</span>,</p>
+                                        <p>&nbsp;&nbsp;activeRetainer: <span class="tok-num">true</span>,</p>
+                                        <p>&nbsp;&nbsp;devAccess: <span class="tok-str">'direct'</span></p>
+                                        <p>});</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Keyboard Base -->
+                        <div class="laptop-base">
+                            <div class="base-keyboard">
+                                <div class="kbd-row"><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div></div>
+                                <div class="kbd-row"><div class="key spacer-left"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div><div class="key spacer-right"></div></div>
+                                <div class="kbd-row"><div class="key spacer-left-lg"></div><div class="key spacebar"></div><div class="key spacer-right-lg"></div></div>
+                            </div>
+                            <div class="base-trackpad"></div>
+                            <div class="base-front-lip"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badges / UI Elements -->
+                    <div class="floating-badge badge-trust">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-label">Trusted by growing businesses</span>
+                    </div>
+
+                    <div class="floating-badge badge-live">
+                        <span class="badge-dot-pulse"></span>
+                        <span class="badge-label">Live Support</span>
+                    </div>
+
+                    <div class="floating-icon icon-code">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+
+                    <div class="floating-icon icon-speed">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="sub-title">Services & Pricing</span>
+                <h2>Choose the retainer that scales with your ambition</h2>
+                <p>Simple monthly subscriptions to support your digital development requirements. No long-term lock-ins, no unexpected invoices.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Basic Frontend -->
+                <div class="pricing-card scroll-reveal" id="plan-basic">
+                    <div class="card-header">
+                        <h3>Basic Frontend</h3>
+                        <div class="price">₹2,449<span>/month</span></div>
+                        <p class="description">Ideal for companies seeking professional design implementation without backend logic.</p>
+                    </div>
+                    <ul class="features">
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Custom frontend design & structure
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Fully responsive mobile styling
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            SEO foundation & performance tuning
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Netlify/Vercel hosting setup
+                        </li>
+                    </ul>
+                    <div class="card-action">
+                        <button class="btn btn-secondary btn-select-plan" data-plan="basic">Choose Plan</button>
+                    </div>
+                </div>
+
+                <!-- Interactive Frontend (Featured) -->
+                <div class="pricing-card featured scroll-reveal" id="plan-interactive">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="card-header">
+                        <h3>Interactive Frontend</h3>
+                        <div class="price">₹4,999<span>/month</span></div>
+                        <p class="description">Elevate user engagement with highly interactive, smooth animated frontend layouts.</p>
+                    </div>
+                    <ul class="features">
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Everything in Basic Frontend
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Custom micro-interactions & scroll animation
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Complex UX components (filters, search, dashboards)
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Ongoing weekly tweaks & custom animations
+                        </li>
+                    </ul>
+                    <div class="card-action">
+                        <button class="btn btn-primary btn-select-plan" data-plan="interactive">Choose Plan</button>
+                    </div>
+                </div>
+
+                <!-- Full Stack Web/App -->
+                <div class="pricing-card scroll-reveal" id="plan-fullstack">
+                    <div class="card-header">
+                        <h3>Full Stack Web/App</h3>
+                        <div class="price"><span class="from-text">Starting at</span> ₹13,999<span>/month</span></div>
+                        <p class="description">End-to-end frontend, custom backend, APIs, databases, and continuous software development support.</p>
+                        <div class="plan-example-link">
+                            <span>Featured build:</span> <a href="https://gritnation.online" target="_blank" rel="noopener">gritnation.online</a>
+                        </div>
+                    </div>
+                    <ul class="features">
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Full-stack app design & logic creation
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Custom backend APIs & scalable DB architecture
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Dedicated developer allocation
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Continuous DevOps, maintenance, & database backup
+                        </li>
+                    </ul>
+                    <div class="card-action">
+                        <button class="btn btn-secondary btn-select-plan" data-plan="fullstack">Choose Plan</button>
+                    </div>
+                </div>
+
+                <!-- Custom Plan -->
+                <div class="pricing-card scroll-reveal" id="plan-custom">
+                    <div class="card-header">
+                        <h3>Custom</h3>
+                        <div class="price">Talk to Us</div>
+                        <p class="description">Tailored digital systems, enterprise integrations, or custom feature sets matching your specific requirements.</p>
+                    </div>
+                    <ul class="features">
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Direct requirements alignment & scoping
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Custom architecture design & possibilities
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Bespoke developer resource allocations
+                        </li>
+                        <li>
+                            <svg class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            Flexible retainer terms & customized rates
+                        </li>
+                    </ul>
+                    <div class="card-action">
+                        <button class="btn btn-secondary btn-select-plan" data-plan="custom">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why SiteSmith Section -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="sub-title">Why SiteSmith</span>
+                <h2>Software development built for partnerships</h2>
+                <p>We work as an integrated component of your team, delivering stability and growth through reliable execution.</p>
+            </div>
+
+            <div class="value-grid">
+                <div class="value-card scroll-reveal">
+                    <div class="value-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h4>Built to scale with you</h4>
+                    <p>We construct system infrastructures that remain clean, reliable, and performant as your traffic and customer counts expand.</p>
+                </div>
+                
+                <div class="value-card scroll-reveal">
+                    <div class="value-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+                    </div>
+                    <h4>Direct access to your developer</h4>
+                    <p>No account managers or sales representatives buffering conversations. You collaborate directly with the engineers implementing your features.</p>
+                </div>
+
+                <div class="value-card scroll-reveal">
+                    <div class="value-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4>No bloated agency overhead</h4>
+                    <p>A simple, consistent monthly flat rate. Transparent operations that prioritize code output rather than administrative friction.</p>
+                </div>
+
+                <div class="value-card scroll-reveal">
+                    <div class="value-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h4>Honest, transparent pricing</h4>
+                    <p>Flat rates. No unexpected fees, no lock-in agreements, and absolute ownership of code assets at all times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="sub-title">Our Process</span>
+                <h2>Three simple steps to start building</h2>
+                <p>A streamlined onboarding flow designed to minimize delays and execute tasks quickly.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step scroll-reveal">
+                    <div class="step-num-wrapper">
+                        <div class="step-number">1</div>
+                    </div>
+                    <h4>1. Free Remote Consultation</h4>
+                    <p>We discuss your product requirements, current infrastructure state, and establish matching subscription parameters.</p>
+                </div>
+
+                <div class="step scroll-reveal">
+                    <div class="step-num-wrapper">
+                        <div class="step-number">2</div>
+                    </div>
+                    <h4>2. Build & Development</h4>
+                    <p>Your dedicated developers construct features in transparent git branches. We provide regular status syncs and rapid feedback loops.</p>
+                </div>
+
+                <div class="step scroll-reveal">
+                    <div class="step-num-wrapper">
+                        <div class="step-number">3</div>
+                    </div>
+                    <h4>3. Launch & Ongoing Retainer</h4>
+                    <p>We publish code to production, implement performance monitoring, and begin structural refinements and new requests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Get Started Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info scroll-reveal">
+                    <span class="sub-title">Get Started</span>
+                    <h2>Ready to build a reliable base?</h2>
+                    <p>Tell us about your digital infrastructure needs. We will arrange a free consultation to align on scope and get your developer team allocated.</p>
+                    <div class="contact-direct">
+                        <div class="direct-item">
+                            <span class="label">Response Time</span>
+                            <span class="value">Under 24 hours</span>
+                        </div>
+                        <div class="direct-item">
+                            <span class="label">Office</span>
+                            <span class="value">Remote / Global</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper scroll-reveal">
+                    <!-- Form Container (Swapped out upon submission) -->
+                    <div class="form-container" id="form-container">
+                        <form id="contact-form" autocomplete="on">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="john@company.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="9876543210" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10);">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest">Interested In</label>
+                                <select id="interest" name="interest" required>
+                                    <option value="" disabled selected>Select a subscription tier</option>
+                                    <option value="basic">Basic Frontend (₹2,449/mo)</option>
+                                    <option value="interactive">Interactive Frontend (₹4,999/mo)</option>
+                                    <option value="fullstack">Full Stack Web/App (Starting ₹13,999/mo)</option>
+                                    <option value="custom">Custom (Talk to Us)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Project Details</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Describe your web, app, or infrastructure needs..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" id="btn-submit">
+                                <span class="btn-text">Submit Details</span>
+                                <div class="spinner" id="form-spinner"></div>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Success State (Hidden by default) -->
+                    <div class="success-state" id="success-state" style="display: none;">
+                        <div class="success-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <h3>Details Submitted!</h3>
+                        <p>Thank you for reaching out to SiteSmith. We've received your request and will follow up with you via email within 24 hours to schedule your free consultation.</p>
+                        <button class="btn btn-secondary" id="btn-reset-form">Send another message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example Showcase CTA -->
+    <section class="examples-cta" id="examples-cta">
+        <div class="container cta-container scroll-reveal">
+            <div class="cta-text">
+                <h2>Want to see what we build?</h2>
+                <p>Explore our collection of production-grade digital designs, code mockups, and client showcases.</p>
+            </div>
+            <div class="cta-action">
+                <a href="examples.html" class="btn btn-primary" id="btn-example">Example</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">Site<span>Smith</span></a>
+                <p class="tagline">"We are the foundation you need if you wish to grow."</p>
+            </div>
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#process">Process</a>
+                <a href="examples.html">Example</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow SiteSmith on Instagram" class="social-link">
+                    <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 SiteSmith. All rights reserved. Built for scale.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

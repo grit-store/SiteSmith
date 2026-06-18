@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISCON GATHIYA | Immersive Digital Restaurant Menu</title>
+    <meta name="description" content="Experience the authentic taste of Junagadh Gathiya, Fafda, and Jalebi at Iscon Gathiya. Explore our interactive digital menu.">
+    <!-- Google Fonts: Playfair Display for headings & Outfit for clean body styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for high-quality SVG icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <!-- Ambient Grid & Floating Ingredient Elements Container -->
+    <div class="ambient-background">
+        <div class="mesh-gradient"></div>
+        <div class="parallax-spices" id="parallax-spices">
+            <!-- Floating spices created dynamically via JS (Chillies, Cardamom, Mint leaves, Coriander) -->
+        </div>
+    </div>
+
+    <!-- Sticky Glassmorphic Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">ISCON</span> GATHIYA
+                <span class="logo-sub">JUNAGADH WALA</span>
+            </a>
+            
+            <div class="nav-actions">
+                <button class="nav-plate-btn" id="nav-plate-btn" aria-label="Open My Plate">
+                    <i class="fa-solid fa-plate-wheat"></i>
+                    <span class="plate-badge" id="plate-count">0</span>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#signature" class="nav-link active">Snacks</a>
+                <a href="#meals" class="nav-link">Meals & Thepla</a>
+                <a href="#bites" class="nav-link">Quick Bites</a>
+                <a href="#drinks" class="nav-link">Drinks & Desserts</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Three.js 3D Steaming Kulhad Tea -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge-premium"><i class="fa-solid fa-star"></i> Junagadh's Legendary Taste <i class="fa-solid fa-star"></i></div>
+                <h1 class="hero-title">
+                    Crispy, Warm, and <br>
+                    <span class="text-gradient">Authentically Indian</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Dive into our hand-stretched Vanela Gathiya, ghee-drenched Jalebis, and steaming cups of Rajwadi Tea. Crafted fresh daily.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#signature" class="btn btn-primary">Explore Menu <i class="fa-solid fa-arrow-down-long"></i></a>
+                    <a href="#about" class="btn btn-secondary">Our Story</a>
+                </div>
+            </div>
+            
+            <div class="hero-3d-wrapper">
+                <div class="hero-canvas-container" id="canvas-container">
+                    <div class="canvas-loader" id="canvas-loader">
+                        <div class="spinner"></div>
+                        <span>Brewing 3D Rajwadi Tea...</span>
+                    </div>
+                    <!-- WebGL Canvas will be appended here by Three.js -->
+                </div>
+                <div class="three-controls-hint">
+                    <i class="fa-solid fa-hand-pointer animate-drag"></i> Drag or swipe to rotate the Kulhad
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Utility Bar: Search, Category Links, and Filters -->
+    <section class="menu-utility-bar">
+        <div class="utility-container">
+            <!-- Search field -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="menu-search" placeholder="Craving something specific? Search here...">
+                <button class="clear-search" id="clear-search" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <!-- Quick Filter Tags -->
+            <div class="filter-tags">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="spicy">Spicy 🌶️</button>
+                <button class="filter-btn" data-filter="sweet">Sweet 🍯</button>
+                <button class="filter-btn" data-filter="beverage">Beverages ☕</button>
+                <button class="filter-btn" data-filter="groundnut">Groundnut Oil 🥜</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <main class="menu-sections-container">
+        <!-- 1. Signature Gathiya & Fafda -->
+        <section class="menu-category-section scroll-reveal-section" id="signature">
+            <div class="category-header">
+                <span class="cat-num">01</span>
+                <h2>Signature Gathiya & Fafda</h2>
+                <p>Junagadh's pride. Stretched by hand, fried to perfect crispness, and served warm with Athela Marcha and Kadhi.</p>
+            </div>
+            <div class="menu-grid">
+                <!-- Card Item 1 -->
+                <div class="menu-item-card" data-id="vanela-gathiya-groundnut" data-name="Vanela Gathiya (Groundnut Oil)" data-price="85" data-category="snacks" data-tags="groundnut" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge groundnut-badge"><i class="fa-solid fa-seedling"></i> Groundnut Oil</span>
+                        <span class="badge best-seller"><i class="fa-solid fa-fire"></i> Best Seller</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Vanela Gathiya <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Traditional soft, twisted Gujarati snack made from gram flour, spices, and fried in premium aromatic Groundnut oil. Melt-in-mouth texture.</p>
+                        <div class="card-footer">
+                            <span class="price">₹85</span>
+                            <button class="add-to-plate-btn" aria-label="Add Vanela Gathiya Groundnut Oil to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 2 -->
+                <div class="menu-item-card" data-id="vanela-gathiya-cottonseed" data-name="Vanela Gathiya (Cottonseed)" data-price="70" data-category="snacks" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Classic</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Vanela Gathiya <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Delicious gram flour rolls infused with carom seeds, prepared in quality cottonseed oil. Light, airy, and wonderfully seasoned.</p>
+                        <div class="card-footer">
+                            <span class="price">₹70</span>
+                            <button class="add-to-plate-btn" aria-label="Add Vanela Gathiya Cottonseed Oil to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 3 -->
+                <div class="menu-item-card" data-id="fafda-groundnut" data-name="Fafda (Groundnut Oil)" data-price="95" data-category="snacks" data-tags="groundnut spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge groundnut-badge"><i class="fa-solid fa-seedling"></i> Groundnut Oil</span>
+                        <span class="badge crunchy">Crunchy</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Fafda <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Crisp, flat gram flour strips seasoned with carom and black pepper, fried in pure groundnut oil. Pair with sweet Jalebi for the ultimate combo!</p>
+                        <div class="card-footer">
+                            <span class="price">₹95</span>
+                            <button class="add-to-plate-btn" aria-label="Add Fafda Groundnut Oil to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 4 -->
+                <div class="menu-item-card" data-id="fafda-cottonseed" data-name="Fafda (Cottonseed Oil)" data-price="80" data-category="snacks" data-tags="spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Classic</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Fafda <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Traditional crisp gram flour strips fried in cottonseed oil. Brittle, perfectly spiced, and best enjoyed with fried green chillies.</p>
+                        <div class="card-footer">
+                            <span class="price">₹80</span>
+                            <button class="add-to-plate-btn" aria-label="Add Fafda Cottonseed Oil to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 5 -->
+                <div class="menu-item-card" data-id="papdi-cottonseed" data-name="Papdi (Cottonseed Oil)" data-price="70" data-category="snacks" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Tea Partner</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Papdi <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Flat, round, crunchy gram flour crisps seasoned with dynamic spices. An absolute staple snack for pairing with hot tea.</p>
+                        <div class="card-footer">
+                            <span class="price">₹70</span>
+                            <button class="add-to-plate-btn" aria-label="Add Papdi to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 6 -->
+                <div class="menu-item-card" data-id="bhajiya-cottonseed" data-name="Bhajiya (Cottonseed Oil)" data-price="55" data-category="snacks" data-tags="spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge hot-badge"><i class="fa-solid fa-pepper-hot"></i> Warm & Spicy</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Bhajiya <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Golden, crispy fritters made of sliced green chillies and potatoes dipped in a spiced gram flour batter. Super savory and zesty.</p>
+                        <div class="card-footer">
+                            <span class="price">₹55</span>
+                            <button class="add-to-plate-btn" aria-label="Add Bhajiya to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 7 -->
+                <div class="menu-item-card" data-id="nylon-khaman" data-name="Nylon Khaman" data-price="45" data-category="snacks" data-tags="sweet" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge morning-only"><i class="fa-regular fa-clock"></i> Until Noon</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Nylon Khaman <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Soft, spongy steamed cakes made from chickpea flour, tempered with mustard seeds, curry leaves, and a sweet, tangy lemon-water splash.</p>
+                        <div class="card-footer">
+                            <span class="price">₹45</span>
+                            <button class="add-to-plate-btn" aria-label="Add Nylon Khaman to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 8 -->
+                <div class="menu-item-card" data-id="vatidal-khaman" data-name="Vatidal Khaman" data-price="45" data-category="snacks" data-tags="spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge morning-only"><i class="fa-regular fa-clock"></i> Until Noon</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Vatidal Khaman <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Traditional Surti style khaman made from soaked, ground chana dal. Coarser texture, moderately spicy, tempered with mustard and chillies.</p>
+                        <div class="card-footer">
+                            <span class="price">₹45</span>
+                            <button class="add-to-plate-btn" aria-label="Add Vatidal Khaman to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Hearty Meals & Thepla Dishes -->
+        <section class="menu-category-section scroll-reveal-section" id="meals">
+            <div class="category-header">
+                <span class="cat-num">02</span>
+                <h2>Hearty Meals & Thepla Dishes</h2>
+                <p>Authentic main courses, griddle-cooked fresh flatbreads, and aromatic gravies served with traditional sides.</p>
+            </div>
+            <div class="menu-grid">
+                <!-- Card Item 9 -->
+                <div class="menu-item-card" data-id="butter-thepla-dish" data-name="Butter Thepla Dish (3 pcs)" data-price="150" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge premium-badge"><i class="fa-solid fa-crown"></i> Complete Dish</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Butter Thepla Dish <span class="portion">(3 Pcs)</span></h3>
+                        <p class="description">Three butter-griddled fenugreek flatbreads (Theplas) served with spiced dry potatoes (Suki Bhaji), fresh yogurt (Dahi), butter cube, Athela Marcha, and garlic chutney.</p>
+                        <div class="card-footer">
+                            <span class="price">₹150</span>
+                            <button class="add-to-plate-btn" aria-label="Add Butter Thepla Dish to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 10 -->
+                <div class="menu-item-card" data-id="thepla-dish" data-name="Thepla Dish (3 pcs)" data-price="125" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Popular</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Thepla Dish <span class="portion">(3 Pcs)</span></h3>
+                        <p class="description">Three griddle-cooked fenugreek flatbreads. Served alongside comforting Suki Bhaji, cool Dahi, zesty Athela Marcha, and spicy garlic chutney.</p>
+                        <div class="card-footer">
+                            <span class="price">₹125</span>
+                            <button class="add-to-plate-btn" aria-label="Add Thepla Dish to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 11 -->
+                <div class="menu-item-card" data-id="butter-thepla-single" data-name="Butter Thepla (Single)" data-price="25" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge order-limit">Min. 2 pcs</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Butter Thepla <span class="portion">(1 pc - 25g)</span></h3>
+                        <p class="description">Single griddle-toasted fenugreek flatbread brushed with golden butter. Perfect for customizing your meal size.</p>
+                        <div class="card-footer">
+                            <span class="price">₹25</span>
+                            <button class="add-to-plate-btn" aria-label="Add Butter Thepla to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 12 -->
+                <div class="menu-item-card" data-id="thepla-single" data-name="Thepla (Single)" data-price="20" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge order-limit">Min. 2 pcs</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Thepla <span class="portion">(1 pc - 25g)</span></h3>
+                        <p class="description">Classic single fenugreek (methi) flatbread griddled with minimal oil. Healthy, soft, and delicious.</p>
+                        <div class="card-footer">
+                            <span class="price">₹20</span>
+                            <button class="add-to-plate-btn" aria-label="Add Thepla to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 13 -->
+                <div class="menu-item-card" data-id="shak-portion" data-name="Shak Portion (200g)" data-price="70" data-category="meals" data-tags="spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge choices">Custom Options</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Shak <span class="portion">(200 gm)</span></h3>
+                        <p class="description">A hearty 200g bowl of your favorite daily curry. Choose from dry spiced potatoes (Suki Bhaji), tangy potato curry (Rasawala Bateta), or rich spicy chickpeas (Chhole).</p>
+                        <div class="card-footer">
+                            <span class="price">₹70</span>
+                            <button class="add-to-plate-btn" aria-label="Add Shak Portion to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 14 -->
+                <div class="menu-item-card" data-id="puri-shak" data-name="Puri Shak (5 Puris)" data-price="130" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Satiating</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Puri Shak <span class="portion">(5 Puris)</span></h3>
+                        <p class="description">Five puffed, golden whole wheat puris served with potato gravy (Rasawala Bateta) or Suki Bhaji, accompanied by refreshing spiced buttermilk (Chaas) and fresh salad.</p>
+                        <div class="card-footer">
+                            <span class="price">₹130</span>
+                            <button class="add-to-plate-btn" aria-label="Add Puri Shak to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 15 -->
+                <div class="menu-item-card" data-id="chhole-kulcha" data-name="Chhole Kulcha (2 pcs)" data-price="130" data-category="meals" data-tags="spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge hot-badge">North Style</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Chhole Kulcha <span class="portion">(2 Pcs)</span></h3>
+                        <p class="description">Two soft, fluffy griddled flatbreads (Kulcha) served with slow-cooked, richly spiced chickpeas (Chhole), cooling Chaas, and green salad.</p>
+                        <div class="card-footer">
+                            <span class="price">₹130</span>
+                            <button class="add-to-plate-btn" aria-label="Add Chhole Kulcha to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 16 -->
+                <div class="menu-item-card" data-id="chhole-puri" data-name="Chhole Puri (5 Puris)" data-price="130" data-category="meals" data-tags="spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge hot-badge">Flavor Bomb</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Chhole Puri <span class="portion">(5 Puris)</span></h3>
+                        <p class="description">Five freshly fried golden puris served with robust, aromatic Chhole gravy, spiced Chaas, and salad. A truly satisfying meal.</p>
+                        <div class="card-footer">
+                            <span class="price">₹130</span>
+                            <button class="add-to-plate-btn" aria-label="Add Chhole Puri to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 17 -->
+                <div class="menu-item-card" data-id="puri-kulcha-side" data-name="Side Puri / Kulcha (2 pcs)" data-price="40" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Sides</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Puri / Kulcha <span class="portion">(2 Pcs - 60g)</span></h3>
+                        <p class="description">Two pieces of hot, fluffy Puris or soft Kulchas to accompany extra servings of curries.</p>
+                        <div class="card-footer">
+                            <span class="price">₹40</span>
+                            <button class="add-to-plate-btn" aria-label="Add Side Puri/Kulcha to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 18 -->
+                <div class="menu-item-card" data-id="aloo-paratha" data-name="Aloo Paratha (1 pc)" data-price="130" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge comfort-food">Comfort Food</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Aloo Paratha <span class="portion">(1 Pc)</span></h3>
+                        <p class="description">Large whole wheat flatbread stuffed with herb-spiced mashed potato filling, griddled to golden brown. Served with cool Dahi, Athela Marcha, and Lasan Chutney.</p>
+                        <div class="card-footer">
+                            <span class="price">₹130</span>
+                            <button class="add-to-plate-btn" aria-label="Add Aloo Paratha to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 19 -->
+                <div class="menu-item-card" data-id="butter-aloo-paratha" data-name="Butter Aloo Paratha (1 pc)" data-price="150" data-category="meals" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge premium-badge">Loaded with Butter</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Butter Aloo Paratha <span class="portion">(1 Pc)</span></h3>
+                        <p class="description">Our standard stuffed potato paratha, layered and loaded with fresh golden butter. Served with Dahi, Athela Marcha, and spicy garlic chutney.</p>
+                        <div class="card-footer">
+                            <span class="price">₹150</span>
+                            <button class="add-to-plate-btn" aria-label="Add Butter Aloo Paratha to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Quick Bites & Combos -->
+        <section class="menu-category-section scroll-reveal-section" id="bites">
+            <div class="category-header">
+                <span class="cat-num">03</span>
+                <h2>Quick Bites & Sandwiches</h2>
+                <p>Comforting sandwiches, buttery buns, and fast-moving hot appetizers for quick cravings.</p>
+            </div>
+            <div class="menu-grid">
+                <!-- Card Item 20 -->
+                <div class="menu-item-card" data-id="samosa" data-name="Samosa (1 pc)" data-price="30" data-category="bites" data-tags="spicy" data-spice="spicy">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge hot-badge">Crispy & Spiced</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Samosa <span class="portion">(1 pc - 80g)</span></h3>
+                        <p class="description">Super crispy pastry cone stuffed with a robustly seasoned mixture of boiled potatoes, green peas, coriander seeds, and whole spices.</p>
+                        <div class="card-footer">
+                            <span class="price">₹30</span>
+                            <button class="add-to-plate-btn" aria-label="Add Samosa to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 21 -->
+                <div class="menu-item-card" data-id="pauva" data-name="Pauva (Spiced flattened rice)" data-price="65" data-category="bites" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge breakfast-badge">Light Bite</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Pauva <span class="portion">Portion</span></h3>
+                        <p class="description">Fluffy, steamed flattened rice seasoned with turmeric, mustard seeds, green chillies, roasted peanuts, and finished with fresh coriander and lemon juice.</p>
+                        <div class="card-footer">
+                            <span class="price">₹65</span>
+                            <button class="add-to-plate-btn" aria-label="Add Pauva to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 22 -->
+                <div class="menu-item-card" data-id="maskabun" data-name="Maskabun (Margarine)" data-price="40" data-category="bites" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Tea Companion</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Maskabun <span class="portion">(90g Margarine)</span></h3>
+                        <p class="description">A super soft, fresh sweet bun cut down the middle and generously slathered with salted margarine. Classic snack-time comfort.</p>
+                        <div class="card-footer">
+                            <span class="price">₹40</span>
+                            <button class="add-to-plate-btn" aria-label="Add Maskabun to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 23 -->
+                <div class="menu-item-card" data-id="chocolate-maskabun" data-name="Chocolate Maskabun" data-price="50" data-category="bites" data-tags="sweet" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge sweet-badge">Kids Special</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Chocolate Maskabun <span class="portion">(90g Margarine)</span></h3>
+                        <p class="description">Soft bun packed with margarine and smothered in rich, creamy chocolate syrup. Indulgently sweet and comforting.</p>
+                        <div class="card-footer">
+                            <span class="price">₹50</span>
+                            <button class="add-to-plate-btn" aria-label="Add Chocolate Maskabun to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 24 -->
+                <div class="menu-item-card" data-id="bread-butter" data-name="Bread Butter" data-price="60" data-category="bites" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Simple</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Bread Butter <span class="portion">Classic</span></h3>
+                        <p class="description">Thick, soft bread slices toasted slightly and spread evenly with quality salted table butter. Simple, satisfying, and perfect.</p>
+                        <div class="card-footer">
+                            <span class="price">₹60</span>
+                            <button class="add-to-plate-btn" aria-label="Add Bread Butter to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 25 -->
+                <div class="menu-item-card" data-id="veg-sandwich" data-name="Vegetable Sandwich" data-price="80" data-category="bites" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge healthy-badge">Veggie Loaded</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Vegetable Sandwich <span class="portion">Fresh</span></h3>
+                        <p class="description">Sliced bread layered with green mint chutney, layered with tomatoes, cucumbers, potatoes, onions, and sprinkled with robust sandwich masala.</p>
+                        <div class="card-footer">
+                            <span class="price">₹80</span>
+                            <button class="add-to-plate-btn" aria-label="Add Vegetable Sandwich to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Drinks, Desserts & Sides -->
+        <section class="menu-category-section scroll-reveal-section" id="drinks">
+            <div class="category-header">
+                <span class="cat-num">04</span>
+                <h2>Drinks, Desserts & Sides</h2>
+                <p>Hot brews, refreshing chilled beverages, and traditional sweet delicacies to round off your meal.</p>
+            </div>
+            <div class="menu-grid">
+                <!-- Card Item 26 -->
+                <div class="menu-item-card" data-id="jalebi-ghee" data-name="Jalebi Ghee (100 gm)" data-price="80" data-category="drinks" data-tags="sweet" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge sweet-badge"><i class="fa-solid fa-cookie"></i> Pure Ghee</span>
+                        <span class="badge best-seller">Best Seller</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Jalebi Ghee <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Crisp, golden batter spirals fried in pure, aromatic Desi Ghee and soaked in warm saffron-infused sugar syrup. Incredible crunch.</p>
+                        <div class="card-footer">
+                            <span class="price">₹80</span>
+                            <button class="add-to-plate-btn" aria-label="Add Jalebi Ghee to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 27 -->
+                <div class="menu-item-card" data-id="rajwadi-tea-full" data-name="Rajwadi Tea (Full)" data-price="30" data-category="drinks" data-tags="beverage" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge tea-badge"><i class="fa-solid fa-mug-hot"></i> House Special</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Rajwadi Tea <span class="portion">(Full - 110 ml)</span></h3>
+                        <p class="description">Royal, spiced cardamom and ginger-infused tea brewed slowly with fresh milk. Served hot, rich, and highly invigorating.</p>
+                        <div class="card-footer">
+                            <span class="price">₹30</span>
+                            <button class="add-to-plate-btn" aria-label="Add Rajwadi Tea Full to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 28 -->
+                <div class="menu-item-card" data-id="rajwadi-tea-half" data-name="Rajwadi Tea (Half)" data-price="15" data-category="drinks" data-tags="beverage" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge tea-badge">Quick Brew</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Rajwadi Tea <span class="portion">(Half - 50 ml)</span></h3>
+                        <p class="description">Half cup (50 ml) of our traditional royal milk tea, packed with aromatic ginger and green cardamom notes.</p>
+                        <div class="card-footer">
+                            <span class="price">₹15</span>
+                            <button class="add-to-plate-btn" aria-label="Add Rajwadi Tea Half to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 29 -->
+                <div class="menu-item-card" data-id="coffee-full" data-name="Coffee (Full)" data-price="35" data-category="drinks" data-tags="beverage" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge coffee-badge"><i class="fa-solid fa-mug-hot"></i> Steaming Hot</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Coffee <span class="portion">(Full - 110 ml)</span></h3>
+                        <p class="description">Freshly frothed, smooth milk coffee brewed with premium roasted coffee beans. Perfect creamy finish.</p>
+                        <div class="card-footer">
+                            <span class="price">₹35</span>
+                            <button class="add-to-plate-btn" aria-label="Add Coffee Full to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 30 -->
+                <div class="menu-item-card" data-id="coffee-half" data-name="Coffee (Half)" data-price="20" data-category="drinks" data-tags="beverage" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge coffee-badge">Quick Cup</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Coffee <span class="portion">(Half - 50 ml)</span></h3>
+                        <p class="description">A small, quick serving (50 ml) of our creamy hot-frothed espresso milk coffee.</p>
+                        <div class="card-footer">
+                            <span class="price">₹20</span>
+                            <button class="add-to-plate-btn" aria-label="Add Coffee Half to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 31 -->
+                <div class="menu-item-card" data-id="rajwadi-chaas" data-name="Rajwadi Chaas" data-price="20" data-category="drinks" data-tags="beverage" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge drink-badge"><i class="fa-solid fa-glass-water"></i> Chilled</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Rajwadi Chaas <span class="portion">(250 ml)</span></h3>
+                        <p class="description">Cooling, light, churned buttermilk mixed with roasted cumin powder, black salt, and fresh coriander. Extremely refreshing.</p>
+                        <div class="card-footer">
+                            <span class="price">₹20</span>
+                            <button class="add-to-plate-btn" aria-label="Add Rajwadi Chaas to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 32 -->
+                <div class="menu-item-card" data-id="lassi" data-name="Lassi" data-price="75" data-category="drinks" data-tags="beverage sweet" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge drink-badge">Rich & Sweet</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Lassi <span class="portion">(200 ml)</span></h3>
+                        <p class="description">Thick, sweet whipped yogurt beverage garnished with a layer of fresh malai (milk cream) and a touch of cardamom.</p>
+                        <div class="card-footer">
+                            <span class="price">₹75</span>
+                            <button class="add-to-plate-btn" aria-label="Add Lassi to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 33 -->
+                <div class="menu-item-card" data-id="special-lassi" data-name="Special Lassi" data-price="95" data-category="drinks" data-tags="beverage sweet" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge premium-badge"><i class="fa-solid fa-crown"></i> Dryfruits Loaded</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Special Lassi <span class="portion">(200 ml)</span></h3>
+                        <p class="description">Super creamy rich yogurt lassi loaded with rose syrup, saffron, and a generous topping of almonds, pistachios, and cashews.</p>
+                        <div class="card-footer">
+                            <span class="price">₹95</span>
+                            <button class="add-to-plate-btn" aria-label="Add Special Lassi to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 34 -->
+                <div class="menu-item-card" data-id="dahi" data-name="Dahi (100 gm)" data-price="15" data-category="drinks" data-tags="" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge classic-badge">Cooling Side</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Dahi <span class="portion">(100 gm)</span></h3>
+                        <p class="description">Fresh, thick, set curd. Ideal for balancing out the spices of your mains and snacks.</p>
+                        <div class="card-footer">
+                            <span class="price">₹15</span>
+                            <button class="add-to-plate-btn" aria-label="Add Dahi to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 35 -->
+                <div class="menu-item-card" data-id="shrikhand" data-name="Shrikhand" data-price="MRP" data-category="drinks" data-tags="sweet" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge sweet-badge">Delicacy</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Shrikhand <span class="portion">Fresh Pack</span></h3>
+                        <p class="description">Rich, strained sweet yogurt dessert blended with saffron, green cardamom, and dryfruit shavings. Classic festive treat.</p>
+                        <div class="card-footer">
+                            <span class="price">MRP</span>
+                            <button class="add-to-plate-btn" data-mrp="true" aria-label="Add Shrikhand to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 36 -->
+                <div class="menu-item-card" data-id="cold-drinks" data-name="Cold Drinks" data-price="MRP" data-category="drinks" data-tags="beverage" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge drink-badge">Chilled Soft Drinks</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Cold Drinks <span class="portion">Bottled</span></h3>
+                        <p class="description">Chilled carbonated soft drinks of your choice (Pepsi, Coca-Cola, Thums Up, Sprite, etc.) served chilled.</p>
+                        <div class="card-footer">
+                            <span class="price">MRP</span>
+                            <button class="add-to-plate-btn" data-mrp="true" aria-label="Add Cold Drinks to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Item 37 -->
+                <div class="menu-item-card" data-id="icecream" data-name="Ice Cream" data-price="MRP" data-category="drinks" data-tags="sweet" data-spice="mild">
+                    <div class="card-glow"></div>
+                    <div class="card-badges">
+                        <span class="badge sweet-badge">Chilled Sweet</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Ice Cream <span class="portion">Assorted Scoop</span></h3>
+                        <p class="description">Rich, creamy ice cream in various traditional and modern flavors (Kesar Pista, Vanilla, Chocolate, Mango).</p>
+                        <div class="card-footer">
+                            <span class="price">MRP</span>
+                            <button class="add-to-plate-btn" data-mrp="true" aria-label="Add Ice Cream to plate">
+                                <span>Add to Plate</span> <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Section to add branding credibility -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-text scroll-reveal">
+                <span class="about-badge">Legend since 1998</span>
+                <h2>Our Culinary Heritage</h2>
+                <p>At Iscon Gathiya, we stay fiercely loyal to traditional cooking techniques. Our master chefs prepare gram flour dough daily, stretching and forming every piece of Vanela Gathiya and Fafda by hand. Fried in small batches using premium oils, we guarantee that hot, fresh, and exceptionally crispy taste that has made us Junagadh's favorite gathering spot.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-label">Handcrafted</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">Fresh</span>
+                        <span class="stat-label">Every Hour</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">Pure</span>
+                        <span class="stat-label">Ingredients</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image scroll-reveal">
+                <!-- Visual highlight decorative container -->
+                <div class="heritage-card">
+                    <i class="fa-solid fa-utensils gold-icon"></i>
+                    <h3>Iscon Guarantee</h3>
+                    <p>Authentic recipes, zero artificial colorings, and the genuine taste of Kathiyawad. Every single bite is prepared with love and integrity.</p>
+                    <div class="heritage-signature">ISCON GATHIYA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive "My Plate" / Order Calculator Drawer -->
+    <div class="plate-drawer" id="plate-drawer">
+        <div class="drawer-handle" id="drawer-toggle">
+            <div class="handle-bar"></div>
+            <div class="drawer-header-summary">
+                <span class="title"><i class="fa-solid fa-plate-wheat"></i> My Plate</span>
+                <span class="items-indicator" id="drawer-items-count">0 items selected</span>
+                <span class="total-indicator" id="drawer-total-price">Total: ₹0</span>
+            </div>
+            <i class="fa-solid fa-chevron-up toggle-arrow" id="drawer-arrow"></i>
+        </div>
+        
+        <div class="drawer-content">
+            <!-- Selected items list -->
+            <div class="plate-items-list" id="plate-items-list">
+                <div class="empty-plate-state" id="empty-plate-state">
+                    <i class="fa-solid fa-cookie-bite"></i>
+                    <p>Your plate is empty. Add appetizing snacks and dishes from the menu above to compute your bill!</p>
+                </div>
+                <!-- Dynamic Items will be appended here -->
+            </div>
+            
+            <!-- Summary Actions -->
+            <div class="drawer-footer-actions">
+                <div class="bill-summary-row">
+                    <span>Subtotal:</span>
+                    <span id="bill-subtotal">₹0</span>
+                </div>
+                <div class="bill-summary-row gst-row">
+                    <span>CGST/SGST (5%):</span>
+                    <span id="bill-gst">₹0</span>
+                </div>
+                <div class="bill-summary-row grand-total-row">
+                    <span>Estimated Total:</span>
+                    <span id="bill-grand-total">₹0</span>
+                </div>
+                <p class="mrp-note">* Items marked with MRP (drinks, ice cream, shrikhand) are not added to this calculation.</p>
+                
+                <div class="drawer-action-buttons">
+                    <button class="btn btn-clear-plate" id="btn-clear-plate"><i class="fa-solid fa-trash-can"></i> Clear Plate</button>
+                    <button class="btn btn-primary btn-order-simulation" id="btn-order-simulation">Confirm Order Concept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast for Order Simulation -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="footer-logo">ISCON <span>GATHIYA</span></span>
+                <p class="footer-tagline">Junagadh Wala - Preserving the authentic legacy of Kathiyawadi snacks since 1998.</p>
+            </div>
+            <div class="footer-info">
+                <h3>Timings & Contact</h3>
+                <p><i class="fa-regular fa-clock"></i> Open Daily: 6:00 AM - 10:00 PM</p>
+                <p><i class="fa-solid fa-location-dot"></i> Near Iscon Circle, Junagadh, Gujarat</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Iscon Gathiya. Designed for visual excellence & smartphone-first experience.</p>
+        </div>
+    </footer>
+
+    <!-- Three.js Library CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="demo.js"></script>
+</body>
+</html>
