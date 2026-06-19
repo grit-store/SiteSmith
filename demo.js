@@ -399,9 +399,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // --- Mouse & Touch Events for WebGL Rotation ---
+    let canvasRect = null;
     function onMouseDown(e) {
         isDragging = true;
         previousMouseX = e.clientX || e.touches[0].clientX;
+        canvasRect = canvasContainer.getBoundingClientRect();
     }
     
     function onMouseMove(e) {
@@ -415,15 +417,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Vertical tilt on movement
         const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-        if (clientY) {
-            const rect = canvasContainer.getBoundingClientRect();
-            const relativeY = (clientY - rect.top) / rect.height;
+        if (clientY && canvasRect) {
+            const relativeY = (clientY - canvasRect.top) / canvasRect.height;
             targetRotationX = (relativeY - 0.5) * 0.7;
         }
     }
     
     function onMouseUp() {
         isDragging = false;
+        canvasRect = null;
     }
     
     canvasContainer.addEventListener('mousedown', onMouseDown);
@@ -458,6 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
         // Track cursor coordinates inside the card for dynamic glowing effect
         card.addEventListener('mousemove', (e) => {
+            if (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window) return;
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -476,6 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Reset transformations when cursor leaves the card
         card.addEventListener('mouseleave', () => {
+            if (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window) return;
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         });
     });

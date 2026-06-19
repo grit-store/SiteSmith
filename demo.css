@@ -597,14 +597,20 @@ a {
     overflow: hidden;
     cursor: pointer;
     box-shadow: var(--card-shadow);
-    transform-style: preserve-3d;
-    perspective: 1000px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    will-change: transform, box-shadow;
+}
+
+@media (hover: hover) {
+    .menu-item-card {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        will-change: transform, box-shadow;
+    }
 }
 
 /* Ambient glow panel behind cards */
 .card-glow {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -613,6 +619,12 @@ a {
     background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(201, 150, 67, 0.08), transparent 40%);
     z-index: 0;
     pointer-events: none;
+}
+
+@media (hover: hover) {
+    .card-glow {
+        display: block;
+    }
 }
 
 .menu-item-card:hover {

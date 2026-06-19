@@ -17,15 +17,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSubmitText = btnSubmit.querySelector('.btn-text');
 
     // ----------------------------------------------------
-    // Sticky Navbar & Active Section Tracking
+    // Sticky Navbar & Active Section Tracking & Parallax
     // ----------------------------------------------------
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    let lastKnownScrollY = 0;
+    let scrollTicking = false;
+    let isNavbarScrolled = false;
+    const parallaxTarget = document.getElementById('parallax-target');
+
+    function handleScrollEffects() {
+        // Sticky Navbar
+        const shouldScroll = lastKnownScrollY > 50;
+        if (shouldScroll !== isNavbarScrolled) {
+            isNavbarScrolled = shouldScroll;
+            navbar.classList.toggle('scrolled', isNavbarScrolled);
         }
-    });
+
+        // Parallax scroll effect (desktop only)
+        if (parallaxTarget) {
+            if (window.innerWidth > 1024) {
+                if (lastKnownScrollY < window.innerHeight) {
+                    parallaxTarget.style.transform = `translateY(${lastKnownScrollY * 0.15}px)`;
+                }
+            } else {
+                if (parallaxTarget.style.transform !== '') {
+                    parallaxTarget.style.transform = '';
+                }
+            }
+        }
+
+        scrollTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        lastKnownScrollY = window.scrollY;
+        if (!scrollTicking) {
+            window.requestAnimationFrame(handleScrollEffects);
+            scrollTicking = true;
+        }
+    }, { passive: true });
 
     // Intersection Observer for Active Nav Links
     const sectionObserverOptions = {
@@ -202,22 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------
-    // Parallax Scroll Effect for Laptop Mockup
-    // ----------------------------------------------------
-    const parallaxTarget = document.getElementById('parallax-target');
-    if (parallaxTarget) {
-        window.addEventListener('scroll', () => {
-            if (window.innerWidth > 1024) {
-                const scrollY = window.scrollY;
-                if (scrollY < window.innerHeight) {
-                    parallaxTarget.style.transform = `translateY(${scrollY * 0.15}px)`;
-                }
-            } else {
-                parallaxTarget.style.transform = ''; // Reset on mobile
-            }
-        });
-    }
+    // Parallax scroll listener removed and merged into throttled scroll handler at the top of DOMContentLoaded
 
     // ----------------------------------------------------
     // Interactive Particle Background
@@ -367,6 +381,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Magnetic Buttons & Elements Effect
     // ----------------------------------------------------
     const initMagneticButtons = () => {
+        // Disable on touch devices since they don't have a cursor hover/magnetic interaction
+        if (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window) return;
+
         const targets = document.querySelectorAll('.btn, .social-link, .logo, .nav-link');
         
         window.addEventListener('mousemove', (e) => {
