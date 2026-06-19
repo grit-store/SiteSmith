@@ -449,9 +449,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Disable on touch devices or small screens to preserve native touch momentum
         if ('ontouchstart' in window || window.innerWidth <= 1024) return;
 
+        // Disable native smooth scroll to prevent collision with custom momentum scroll
+        document.documentElement.style.scrollBehavior = 'auto';
+
         let targetY = window.scrollY;
         let currentY = window.scrollY;
-        const ease = 0.04; // Proportional ease delay (lower = smoother/more lag)
+        const ease = 0.08; // Proportional ease delay (lower = smoother/more lag)
         let isScrolling = false;
 
         // Custom mouse wheel listener
