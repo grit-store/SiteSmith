@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Legal Documentation | SiteSmith</title>
+    <meta name="description" content="Privacy Policy and Terms of Service for SiteSmith digital services agency. Review our terms of subscription, intellectual property rules, and privacy practices.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpeg">
+    
+    <!-- Material Symbols and Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary": "#C9A96E",
+                            "primary-fixed": "#DFC08A",
+                            "primary-fixed-dim": "#C9A96E",
+                            "primary-container": "rgba(201, 169, 110, 0.15)",
+                            "on-primary": "#0c0c0e",
+                            "background": "#0D0C0A",
+                            "surface": "#0D0C0A",
+                            "surface-container": "#1D1B18",
+                            "surface-container-low": "#151411",
+                            "surface-container-lowest": "#070605",
+                            "surface-container-high": "#282521",
+                            "surface-container-highest": "#332F2A",
+                            "surface-deep": "#0D0C0A",
+                            "surface-glass": "rgba(29, 27, 24, 0.55)",
+                            "border-subtle": "#2A2A2C",
+                            "on-surface": "#F0ECE4",
+                            "on-surface-variant": "#9A9590",
+                            "text-muted": "#6B6560",
+                            "glow-teal": "rgba(201, 169, 110, 0.08)",
+                            "surface-bright": "#222225",
+                            "surface-dim": "#0D0C0A",
+                            "outline": "#48484A",
+                            "secondary": "#bec6e0",
+                            "on-secondary": "#283044",
+                            "secondary-container": "#3f465c",
+                            "on-secondary-container": "#adb4ce",
+                            "tertiary": "#ffd1aa",
+                            "on-tertiary": "#4b2800",
+                            "tertiary-container": "#ffac5a",
+                            "on-tertiary-container": "#744000",
+                            "error": "#ffb4ab",
+                            "on-error": "#690005",
+                            "error-container": "#93000a",
+                            "on-error-container": "#ffdad6"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "margin-mobile": "16px",
+                            "gutter": "24px",
+                            "margin-desktop": "48px",
+                            "unit": "8px",
+                            "container-max": "1280px"
+                        },
+                        "fontFamily": {
+                            "body-md": ["Inter"],
+                            "display-lg": ["Space Grotesk"],
+                            "body-lg": ["Inter"],
+                            "headline-lg-mobile": ["Space Grotesk"],
+                            "code-sm": ["JetBrains Mono"],
+                            "headline-md": ["Space Grotesk"],
+                            "headline-lg": ["Space Grotesk"],
+                            "label-caps": ["Space Grotesk"]
+                        },
+                        "fontSize": {
+                            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                            "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                            "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                            "code-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                            "headline-md": ["30px", { "lineHeight": "38px", "fontWeight": "600" }],
+                            "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                            "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                        }
+                    }
+                }
+            }
+        } catch(e) {}
+    </script>
+    
+    <!-- Link Local Style Overrides -->
+    <link rel="stylesheet" href="style.css?v=1.03">
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen flex flex-col bg-transparent text-on-surface">
+
+    <!-- Interactive Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-surface-glass backdrop-blur-md border-b border-border-subtle shadow-sm transition-all duration-300">
+        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="flex items-center gap-2 text-primary font-headline-md tracking-tight hover:opacity-80 transition-opacity">
+                <!-- Text-only Logo (space-grotesk styled wordmark) -->
+                <a href="index.html" class="text-on-surface font-headline-md tracking-tight">Site<span class="text-primary font-light">Smith</span></a>
+            </div>
+            
+            <nav class="hidden md:flex gap-8 items-center">
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 nav-link-custom" href="index.html#pricing">Solutions</a>
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 nav-link-custom" href="index.html#work">Work</a>
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 nav-link-custom" href="index.html#infrastructure">Why SiteSmith</a>
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 nav-link-custom" href="index.html#process">Process</a>
+                <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 nav-link-custom" href="index.html#contact">Contact</a>
+            </nav>
+            
+            <a href="index.html#contact" class="hidden md:flex items-center justify-center bg-primary text-background px-6 py-2 rounded font-label-caps hover:bg-primary-fixed hover:shadow-[0_0_15px_rgba(201,169,110,0.3)] transition-all duration-300 transform hover:-translate-y-0.5">
+                Get Started
+            </a>
+            
+            <button class="md:hidden text-primary p-2 focus:outline-none" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-surface-container/95 backdrop-blur-xl border-l border-border-subtle z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-6 gap-6 shadow-2xl">
+        <a href="index.html#pricing" class="nav-link text-on-surface-variant font-body-md hover:text-primary transition-all py-2 border-b border-border-subtle/30">Solutions</a>
+        <a href="index.html#work" class="nav-link text-on-surface-variant font-body-md hover:text-primary transition-all py-2 border-b border-border-subtle/30">Work</a>
+        <a href="index.html#infrastructure" class="nav-link text-on-surface-variant font-body-md hover:text-primary transition-all py-2 border-b border-border-subtle/30">Why SiteSmith</a>
+        <a href="index.html#process" class="nav-link text-on-surface-variant font-body-md hover:text-primary transition-all py-2 border-b border-border-subtle/30">Process</a>
+        <a href="index.html#contact" class="nav-link text-on-surface-variant font-body-md hover:text-primary transition-all py-2">Contact</a>
+        <a href="index.html#contact" class="w-full mt-4 text-center bg-primary text-background py-2 rounded font-label-caps hover:bg-primary-fixed transition-colors">
+            Get Started
+        </a>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto w-full relative z-10">
+        
+        <!-- Header -->
+        <div class="text-center mb-12 reveal-up scroll-trigger reveal-active">
+            <h1 class="font-display-lg text-4xl md:text-5xl text-on-surface mb-4 font-bold tracking-tight">Legal Documentation</h1>
+            <p class="font-body-md text-text-muted max-w-xl mx-auto">Please select a section below to review SiteSmith's standard operating rules, compliance conditions, and privacy policies.</p>
+        </div>
+
+        <!-- Animated Pill Tab Switcher -->
+        <div class="flex justify-center border-b border-border-subtle mb-12">
+            <div class="flex space-x-8">
+                <button id="tab-privacy" class="pb-4 font-headline-md text-lg relative font-semibold text-primary transition-colors focus:outline-none no-magnetic">
+                    Privacy Policy
+                    <span id="indicator-privacy" class="absolute bottom-0 left-0 w-full h-[2px] bg-primary origin-left transition-transform duration-300 scale-x-100"></span>
+                </button>
+                <button id="tab-terms" class="pb-4 font-headline-md text-lg relative font-semibold text-text-muted hover:text-on-surface transition-colors focus:outline-none no-magnetic">
+                    Terms of Service
+                    <span id="indicator-terms" class="absolute bottom-0 left-0 w-full h-[2px] bg-primary origin-left transition-transform duration-300 scale-x-0"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Privacy Policy Panel -->
+        <div id="panel-privacy" class="glass-panel p-8 md:p-12 rounded-xl border border-border-subtle">
+            <div class="prose prose-invert max-w-none text-on-surface-variant font-body-md space-y-6">
+                <div class="flex justify-between items-center border-b border-border-subtle pb-4 mb-6">
+                    <h2 class="font-headline-md text-2xl text-on-surface font-semibold">Privacy Policy</h2>
+                    <span class="font-code-sm text-xs text-primary">Last Updated: July 10, 2026</span>
+                </div>
+
+                <p>At SiteSmith, we respect your privacy and are committed to protecting it. This Privacy Policy details how we collect, use, store, and safeguard the information you provide when you interact with our website, subscribe to our service retainers, or collaborate with us on digital agency projects.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">1. Information We Collect</h3>
+                <p>We collect information you voluntarily share, as well as automatic technical telemetry:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Account & Registration Details:</strong> When you subscribe to our plans, we collect contact credentials including name, email address, company name, phone number, and billing information (handled securely through our payment processors).</li>
+                    <li><strong>Project Submissions & Code Files:</strong> Any assets, project descriptions, wireframes, repository keys, database credentials, or architectural designs you provide us during onboarding.</li>
+                    <li><strong>Usage Data:</strong> Anonymized analytical parameters such as browser details, access timestamps, visited pages, IP addresses, and interaction metrics on our site.</li>
+                </ul>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">2. How We Use Your Information</h3>
+                <p>Your details are processed to execute our services, maintain accounts, and secure operational infrastructure:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>To deliver frontend, interactive frontend, or full-stack software development under subscription plans.</li>
+                    <li>To handle billing cycles, process payments, and send transactional notifications.</li>
+                    <li>To optimize website responsiveness, conduct diagnostic testing, and defend against fraudulent activities.</li>
+                    <li>To communicate updates about your project deliverables, schedule review sessions, and provide developer support.</li>
+                </ul>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">3. Data Security and Code Ownership Protection</h3>
+                <p>Because we construct mission-critical websites and application source code, security is our primary focus:</p>
+                <p>We enforce restricted access logs, encrypted file exchanges, and secure password managers. Any access tokens or keys provided for deployment environments are deleted immediately upon subscription termination or staging completion. We do not store client database credentials in plain text.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">4. Sharing and Disclosure</h3>
+                <p>We do not sell, trade, or rent client data or source code. We share data only in these narrow scopes:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Service Providers:</strong> Standard third-party tools to support operations (e.g., Stripe for billing, Web3Forms/Email infrastructure, GitHub for repository hosting).</li>
+                    <li><strong>Legal Compliance:</strong> When required by binding legal orders, court summons, or regulatory inquiries.</li>
+                </ul>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">5. Cookies & Analytics</h3>
+                <p>We use essential cookies and minor analytical identifiers to improve visitor experiences. You can disable cookies inside your local browser settings, though doing so might disrupt session continuity on specific payment pages.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">6. Your Rights & GDPR Compliance</h3>
+                <p>Under international frameworks like GDPR and CCPA, clients retain complete authority to access, edit, restrict, or purge their personal accounts. If you wish to request total deletion of your profile history or active developer credentials, contact us at the address below.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">7. Contact Us</h3>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please email our legal team at:</p>
+                <p class="font-code-sm text-primary bg-surface-container/50 px-4 py-2 rounded inline-block">legal@sitesmith.website</p>
+            </div>
+        </div>
+
+        <!-- Terms of Service Panel -->
+        <div id="panel-terms" class="glass-panel p-8 md:p-12 rounded-xl border border-border-subtle hidden">
+            <div class="prose prose-invert max-w-none text-on-surface-variant font-body-md space-y-6">
+                <div class="flex justify-between items-center border-b border-border-subtle pb-4 mb-6">
+                    <h2 class="font-headline-md text-2xl text-on-surface font-semibold">Terms of Service</h2>
+                    <span class="font-code-sm text-xs text-primary">Last Updated: July 10, 2026</span>
+                </div>
+
+                <p>Welcome to SiteSmith. By visiting our website or registering for a monthly retainer subscription plan (Basic Frontend, Interactive Frontend, or Full Stack Web/App), you agree to comply with and be bound by the following Terms of Service. If you do not accept these terms, you are prohibited from using our services.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">1. Description of Services</h3>
+                <p>SiteSmith is a digital services agency offering software engineering, UI design, mobile app development, and frontend website construction. These services are provided on a recurring subscription basis. Deliverables are defined by the active tier chosen during checkout.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">2. Subscriptions, Payments & Cancellation</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Billing Cycle:</strong> Service fees are charged automatically in advance on a recurring monthly cycle, commencing on the date you purchase your selected subscription package.</li>
+                    <li><strong>Cancellation:</strong> You can cancel your subscription plan at any time. Upon cancellation, developer services will remain active until the end of your current billing cycle. We do not offer partial refunds or prorated credits.</li>
+                    <li><strong>Failed Payments:</strong> If a renewal transaction fails, we reserve the right to immediately pause all active coding, hosting support, and repository updates until billing details are updated.</li>
+                </ul>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">3. Project Cooperation & Deadlines</h3>
+                <p>Our capacity to deliver code is strictly dependent on client responsiveness. You agree to provide necessary assets (copywriting, design files, branding guidelines) and prompt feedback on completed pull requests. We are not liable for delayed launches resulting from client feedback bottlenecks.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">4. Intellectual Property and Code Ownership</h3>
+                <p>Ownership of the deliverables is structured as follows:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Ownership Transfer:</strong> Upon receipt of full payment for the applicable billing period, SiteSmith transfers complete intellectual property ownership, source code rights, and design assets developed during that period to the client.</li>
+                    <li><strong>Open-Source Packages:</strong> Deliverables may rely on third-party libraries, frameworks (e.g., Tailwind CSS, React), or open-source packages. These elements remain subject to their original licenses (MIT, Apache, etc.).</li>
+                    <li><strong>Portfolio Rights:</strong> Unless explicitly restricted by a signed Non-Disclosure Agreement (NDA), you grant SiteSmith a limited, non-exclusive license to showcase screenshot mockups and general summaries of the finished work in our digital portfolio.</li>
+                </ul>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">5. Limitation of Liability</h3>
+                <p>SiteSmith acts as an engineering contractor. We provide our services on an "as is" and "as available" basis. To the maximum extent permitted by law, SiteSmith will not be liable for any indirect, incidental, special, or consequential damages (including loss of profits, system downtime, security breaches on hosting platforms, or project delays) arising from client operations.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">6. Governing Law</h3>
+                <p>These Terms of Service and any contractual disputes arising between you and SiteSmith shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to conflict of law principles.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">7. Modifications to Terms</h3>
+                <p>We reserve the right to modify these Terms of Service. If we make material adjustments, we will notify active subscribers via the registered email or publish a warning notice directly on our website. Continued subscription after updates take effect represents full consent.</p>
+
+                <h3 class="font-headline-md text-xl text-on-surface font-semibold pt-4 border-t border-border-subtle/50">8. Legal Contact</h3>
+                <p>If you have any questions or require clarification on these terms, please contact:</p>
+                <p class="font-code-sm text-primary bg-surface-container/50 px-4 py-2 rounded inline-block">legal@sitesmith.website</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest border-t border-border-subtle py-16 relative z-10 mt-auto">
+        <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Brand Column -->
+            <div class="flex flex-col gap-4 md:col-span-2">
+                <div class="text-primary font-headline-md tracking-tight">
+                    Site<span class="text-primary font-light opacity-80">Smith</span>
+                </div>
+                <p class="font-body-md text-text-muted mt-2 max-w-sm">"We are the foundation you need if you wish to grow."</p>
+            </div>
+            
+            <!-- Links Column 1: Explore -->
+            <div class="flex flex-col gap-3">
+                <h4 class="font-label-caps text-on-surface-variant mb-2 tracking-wider">Explore</h4>
+                <a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html#pricing">Solutions</a>
+                <a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html#work">Selected Work</a>
+                <a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html#process">Our Process</a>
+                <a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html#contact">Get Started</a>
+            </div>
+            
+            <!-- Links Column 2: Legal -->
+            <div class="flex flex-col gap-3">
+                <h4 class="font-label-caps text-on-surface-variant mb-2 tracking-wider">Legal</h4>
+                <a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#privacy">Privacy Policy</a>
+                <a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#terms">Terms of Service</a>
+            </div>
+        </div>
+        
+        <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-12 pt-8 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-body-md text-text-muted text-sm">&copy; 2026 SiteSmith Infrastructure. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a class="text-text-muted hover:text-primary transition-colors" href="https://www.instagram.com/sitesmith.website?igsh=YmFucWwwYzJkaWNo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Javascript Scripts -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="script.js?v=1.04"></script>
+
+    <!-- Tab Switching Logic and Hash Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabPrivacy = document.getElementById('tab-privacy');
+            const tabTerms = document.getElementById('tab-terms');
+            const panelPrivacy = document.getElementById('panel-privacy');
+            const panelTerms = document.getElementById('panel-terms');
+            const indicatorPrivacy = document.getElementById('indicator-privacy');
+            const indicatorTerms = document.getElementById('indicator-terms');
+
+            function showPrivacy() {
+                // Panels
+                panelPrivacy.classList.remove('hidden');
+                panelTerms.classList.add('hidden');
+                
+                // Tab Text colors
+                tabPrivacy.classList.add('text-primary');
+                tabPrivacy.classList.remove('text-text-muted');
+                tabTerms.classList.add('text-text-muted');
+                tabTerms.classList.remove('text-primary');
+
+                // Underline indicators
+                indicatorPrivacy.classList.add('scale-x-100');
+                indicatorPrivacy.classList.remove('scale-x-0');
+                indicatorTerms.classList.add('scale-x-0');
+                indicatorTerms.classList.remove('scale-x-100');
+
+                // Update hash without triggering reload
+                if (window.location.hash !== '#privacy') {
+                    history.pushState(null, null, '#privacy');
+                }
+            }
+
+            function showTerms() {
+                // Panels
+                panelPrivacy.classList.add('hidden');
+                panelTerms.classList.remove('hidden');
+                
+                // Tab Text colors
+                tabPrivacy.classList.remove('text-primary');
+                tabPrivacy.classList.add('text-text-muted');
+                tabTerms.classList.remove('text-text-muted');
+                tabTerms.classList.add('text-primary');
+
+                // Underline indicators
+                indicatorPrivacy.classList.remove('scale-x-100');
+                indicatorPrivacy.classList.add('scale-x-0');
+                indicatorTerms.classList.remove('scale-x-0');
+                indicatorTerms.classList.add('scale-x-100');
+
+                // Update hash without triggering reload
+                if (window.location.hash !== '#terms') {
+                    history.pushState(null, null, '#terms');
+                }
+            }
+
+            // Event Listeners for Tabs
+            tabPrivacy.addEventListener('click', showPrivacy);
+            tabTerms.addEventListener('click', showTerms);
+
+            // Handle Incoming URL Hashes on Load
+            function checkHash() {
+                const hash = window.location.hash;
+                if (hash === '#terms') {
+                    showTerms();
+                } else {
+                    showPrivacy(); // Default state
+                }
+            }
+
+            window.addEventListener('hashchange', checkHash);
+            checkHash(); // Run on initial load
+        });
+    </script>
+</body>
+</html>

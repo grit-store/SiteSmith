@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window) return;
 
         const targets = Array.from(document.querySelectorAll('button, a.nav-link, .logo')).filter(el => {
-            return !el.closest('header') && !el.closest('#mobile-menu');
+            return !el.closest('header') && !el.closest('#mobile-menu') && !el.classList.contains('no-magnetic');
         });
         
         window.addEventListener('mousemove', (e) => {
