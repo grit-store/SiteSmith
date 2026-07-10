@@ -294,21 +294,38 @@ document.addEventListener('DOMContentLoaded', () => {
             btnSubmitText.style.opacity = '0';
             formSpinner.style.display = 'block';
 
-            // Simulate form submission latency (1.5 seconds)
-            setTimeout(() => {
+            const formData = new FormData(contactForm);
+
+            // Send actual POST request to Web3Forms API
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status === 200) {
+                    // Display success confirmation card
+                    formContainer.style.display = 'none';
+                    successState.style.display = 'flex';
+                    
+                    // Scroll success card into focus smoothly
+                    const navbarHeight = navbar.offsetHeight || 80;
+                    customScrollTo(successState, navbarHeight);
+                } else {
+                    console.error('Web3Forms Error:', json);
+                    alert("Something went wrong: " + (json.message || "Please try again later."));
+                }
+            })
+            .catch(error => {
+                console.error('Web3Forms Submission Failed:', error);
+                alert("Submission failed. Please check your internet connection and try again.");
+            })
+            .finally(() => {
                 // Reset loading state
                 btnSubmit.disabled = false;
                 btnSubmitText.style.opacity = '1';
                 formSpinner.style.display = 'none';
-
-                // Display success confirmation card
-                formContainer.style.display = 'none';
-                successState.style.display = 'flex';
-                
-                // Scroll success card into focus if needed
-                const navbarHeight = navbar.offsetHeight || 80;
-                customScrollTo(successState, navbarHeight);
-            }, 1500);
+            });
         });
     }
 
