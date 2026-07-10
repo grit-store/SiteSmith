@@ -1,0 +1,450 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#1c2b3c",
+                        "tertiary-container": "#ffac5a",
+                        "on-tertiary-container": "#744000",
+                        "tertiary-fixed": "#ffdcc0",
+                        "on-secondary": "#283044",
+                        "on-surface": "#d4e4fa",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "error-container": "#93000a",
+                        "on-primary": "#003731",
+                        "background": "#051424",
+                        "inverse-primary": "#006b5f",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#010f1f",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "primary-fixed": "#62fae3",
+                        "primary-fixed-dim": "#3cddc7",
+                        "surface-container-low": "#0d1c2d",
+                        "inverse-surface": "#d4e4fa",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-variant": "#273647",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#2d1600",
+                        "border-subtle": "#1E293B",
+                        "on-background": "#d4e4fa",
+                        "surface-tint": "#3cddc7",
+                        "on-error": "#690005",
+                        "on-primary-container": "#00574d",
+                        "on-secondary-container": "#adb4ce",
+                        "primary-container": "#2dd4bf",
+                        "surface-bright": "#2c3a4c",
+                        "glow-teal": "rgba(45, 212, 191, 0.15)",
+                        "inverse-on-surface": "#233143",
+                        "surface-deep": "#0F172A",
+                        "surface-glass": "rgba(30, 41, 59, 0.7)",
+                        "secondary": "#bec6e0",
+                        "on-tertiary": "#4b2800",
+                        "outline-variant": "#3c4a46",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "secondary-container": "#3f465c",
+                        "surface-dim": "#051424",
+                        "on-secondary-fixed": "#131b2e",
+                        "outline": "#859490",
+                        "surface-container": "#122131",
+                        "on-primary-fixed-variant": "#005047",
+                        "text-muted": "#64748B",
+                        "tertiary": "#ffd1aa",
+                        "primary": "#57f1db",
+                        "surface": "#051424",
+                        "surface-container-highest": "#273647",
+                        "on-surface-variant": "#bacac5",
+                        "on-primary-fixed": "#00201c",
+                        "on-secondary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["30px", { "lineHeight": "38px", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    }catch(_e){}</script><meta charset="utf-8">
+<style>
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-active { opacity: 1; transform: translate(0, 0); }
+        
+        .typewriter-text {
+            overflow: hidden;
+            border-right: .15em solid #57f1db;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            width: 0;
+            opacity: 0;
+        }
+        .typewriter-active {
+            opacity: 1;
+            animation: typing 2s steps(40, end) forwards, blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #57f1db; }
+        }
+        
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(87, 241, 219, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(87, 241, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(87, 241, 219, 0); }
+        }
+    </style>
+</head><body class="font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-glass backdrop-blur-md border-b border-border-subtle shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2 text-primary font-headline-lg-mobile md:font-headline-lg tracking-tighter cursor-pointer hover:opacity-80 transition-opacity"><img alt="SiteSmith Logo" class="h-14 md:h-20 w-auto object-contain brightness-125 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzGRCwzOyIahtOsYjtfNMiVq2m4Brt8cLj1BUyfGfV-kLb0tW627421FuZMgODenSip5uEISPu5an3y0n7wWiF0f-MGK8Ki-Omcg1Y8aEKmdMrxztSKIhx-OwKgpi4sqe8p3DPxjs3iBasSS2OKjMgtUwAc8Xh4L7P_DsGHdVmr7w53wFk2EFjMajZWckBs9f8Vtu4dD6zSTkv3940mrXQNOCxeKdQYzvE_0PvFyiFWiRvgd4fdKwsKgiQCl0m6w-9Wg"></div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-body-md hover:text-primary hover:glow-teal transition-all duration-300 hover:scale-95 ease-in-out" href="#solutions">Solutions</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary hover:glow-teal transition-all duration-300 hover:scale-95 ease-in-out" href="#infrastructure">Infrastructure</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary hover:glow-teal transition-all duration-300 hover:scale-95 ease-in-out" href="#process">Process</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary hover:glow-teal transition-all duration-300 hover:scale-95 ease-in-out" href="#pricing">Pricing</a>
+</nav>
+<button class="hidden md:flex items-center justify-center bg-primary text-surface-deep px-6 py-2 rounded font-label-caps hover:bg-primary-fixed hover:shadow-[0_0_15px_rgba(45,212,191,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
+                Get Started
+            </button>
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop pt-16 md:pt-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-dim z-0 pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-8 reveal-up scroll-trigger reveal-active">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary font-label-caps mb-4">
+<span class="w-2 h-2 rounded-full bg-primary pulse-dot"></span>
+                    Systems Operational
+                </div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-[80px] md:leading-[88px] text-on-surface tracking-tight break-words overflow-hidden">
+                    SiteSmith
+                </h1>
+<div class="inline-block">
+<p class="font-headline-md text-headline-md text-on-surface-variant max-w-2xl typewriter-target typewriter-text typewriter-active reveal-active" data-text="Digital Infrastructure Partner">Digital Infrastructure Partner</p>
+</div>
+<p class="font-body-lg text-body-lg text-text-muted max-w-3xl mb-8 reveal-up scroll-trigger reveal-active break-words" style="transition-delay: 0.2s;">
+                    We engineer resilient, high-performance web solutions for enterprises that view software as their primary competitive advantage.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 reveal-up scroll-trigger reveal-active" style="transition-delay: 0.4s;">
+<button class="bg-primary text-surface-deep px-8 py-4 rounded font-label-caps text-[14px] hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(45,212,191,0.5)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto">
+                        Get Started
+                    </button>
+<button class="bg-transparent text-on-surface px-8 py-4 rounded border border-border-subtle font-label-caps text-[14px] hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-300 w-full sm:w-auto">
+                        View Architecture
+                    </button>
+</div>
+</div>
+</section>
+<!-- Services & Pricing Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 py-12" id="pricing">
+<div class="md:mb-24 flex flex-col gap-4 reveal-left scroll-trigger reveal-active mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface typewriter-target inline-block typewriter-text typewriter-active reveal-active" data-text="Services &amp; Pricing">Services &amp; Pricing</h2>
+<div class="h-1 w-24 bg-primary rounded"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile overflow-hidden">
+<!-- Basic Card -->
+<div class="glass-panel rounded-xl flex flex-col transition-all duration-300 hover:-translate-y-2 glow-hover group relative overflow-hidden reveal-up scroll-trigger reveal-active p-6 gap-4" style="transition-delay: 0.1s;">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">view_quilt</span>
+</div>
+<div class="text-3xl">
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2 break-words">Static Site</h3>
+<p class="font-body-md text-text-muted min-h-[3rem] h-auto mb-4 break-words">Fast, secure, and reliable static deployments.</p>
+</div>
+<div class="text-primary font-display-lg text-[40px] leading-tight mt-auto">
+                        $99<span class="font-body-md text-[16px] text-text-muted">/mo</span>
+</div>
+<ul class="flex flex-col font-body-md text-on-surface-variant gap-2 mb-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Global CDN</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Automated SSL</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-text-muted text-sm">close</span> API Integrations</li>
+</ul>
+<button class="w-full py-3 rounded border border-border-subtle text-on-surface font-label-caps group-hover:border-primary group-hover:text-primary transition-colors">Deploy</button>
+</div>
+<!-- Highlighted Card -->
+<div class="glass-panel rounded-xl flex flex-col transition-all duration-300 hover:-translate-y-2 relative overflow-hidden border-primary/50 shadow-[0_0_30px_rgba(45,212,191,0.1)] group reveal-up scroll-trigger reveal-active p-6 gap-4" style="transition-delay: 0.2s;">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-fixed"></div>
+<div class="absolute top-4 right-4 bg-primary text-surface-deep px-3 py-1 rounded-sm font-label-caps text-[10px] flex items-center gap-1 shadow-[0_0_10px_rgba(45,212,191,0.3)] text-3xl">
+<span class="material-symbols-outlined text-[12px] text-4xl">bolt</span> MOST POPULAR
+                    </div>
+<div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2 mt-4 break-words">Interactive Frontend</h3>
+<p class="font-body-md text-text-muted min-h-[3rem] h-auto mb-4 break-words">Dynamic user experiences with state management.</p>
+</div>
+<div class="text-primary font-display-lg text-[40px] leading-tight mt-auto">
+                        $299<span class="font-body-md text-[16px] text-text-muted">/mo</span>
+</div>
+<ul class="flex flex-col font-body-md text-on-surface-variant gap-2 mb-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Advanced Routing</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Custom Animations</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> API Integrations</li>
+</ul>
+<button class="w-full py-3 rounded bg-primary text-surface-deep font-label-caps hover:bg-primary-fixed transition-colors">Deploy</button>
+</div>
+<!-- Pro Card -->
+<div class="glass-panel rounded-xl flex flex-col transition-all duration-300 hover:-translate-y-2 glow-hover group relative overflow-hidden reveal-up scroll-trigger reveal-active p-6 gap-4" style="transition-delay: 0.3s;">
+<div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2 break-words">Full-Stack App</h3>
+<p class="font-body-md text-text-muted min-h-[3rem] h-auto mb-4 break-words">End-to-end solutions with robust backend logic.</p>
+</div>
+<div class="text-primary font-display-lg leading-tight mt-auto text-3xl">
+                        $899<span class="font-body-md text-[16px] text-text-muted">/mo</span>
+</div>
+<ul class="flex flex-col font-body-md text-on-surface-variant gap-2 mb-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Database Setup</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Auth Systems</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Scalable Architecture</li>
+</ul>
+<button class="w-full py-3 rounded border border-border-subtle text-on-surface font-label-caps group-hover:border-primary group-hover:text-primary transition-colors">Deploy</button>
+</div>
+<!-- Enterprise Card -->
+<div class="glass-panel rounded-xl flex flex-col transition-all duration-300 hover:-translate-y-2 glow-hover group relative overflow-hidden reveal-up scroll-trigger reveal-active p-6 gap-4" style="transition-delay: 0.4s;">
+<div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-2 break-words">Enterprise Infrastructure</h3>
+<p class="font-body-md text-text-muted min-h-[3rem] h-auto mb-4 break-words">Custom deployments for high-availability needs.</p>
+</div>
+<div class="text-primary font-display-lg leading-tight mt-auto text-3xl">
+                        Custom
+                    </div>
+<ul class="flex flex-col font-body-md text-on-surface-variant gap-2 mb-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Dedicated Clusters</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> SLA Guarantees</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> 24/7 Support</li>
+</ul>
+<button class="w-full py-3 rounded border border-border-subtle text-on-surface font-label-caps group-hover:border-primary group-hover:text-primary transition-colors">Contact Sales</button>
+</div>
+</div>
+</section>
+<!-- Why SiteSmith Section -->
+<section class="py-24 bg-surface-deep/50 relative border-y border-border-subtle" id="infrastructure">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-16 md:mb-24 flex flex-col items-center text-center gap-4 reveal-up scroll-trigger reveal-active">
+<h2 class="font-headline-lg text-headline-lg text-on-surface typewriter-target inline-block typewriter-text typewriter-active reveal-active" data-text="Why SiteSmith?">Why SiteSmith?</h2>
+<p class="font-body-lg text-text-muted max-w-2xl reveal-up scroll-trigger reveal-active break-words" style="transition-delay: 0.2s;">Engineered for precision, speed, and absolute reliability.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+<div class="flex gap-6 group reveal-left scroll-trigger reveal-active" style="transition-delay: 0.1s;">
+<div class="w-16 h-16 rounded-lg bg-surface-variant flex items-center justify-center shrink-0 border border-border-subtle group-hover:border-primary/50 transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+<span class="material-symbols-outlined text-3xl text-primary">rocket_launch</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-3">Unmatched Speed</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Optimized delivery networks and aggressive caching strategies ensure sub-second load times globally.</p>
+</div>
+</div>
+<div class="flex gap-6 group reveal-right scroll-trigger reveal-active" style="transition-delay: 0.3s;">
+<div class="w-16 h-16 rounded-lg bg-surface-variant flex items-center justify-center shrink-0 border border-border-subtle group-hover:border-primary/50 transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+<span class="material-symbols-outlined text-3xl text-primary">security</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-3">Enterprise Security</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Zero-trust architecture, automated threat mitigation, and compliance-ready infrastructure standard.</p>
+</div>
+</div>
+<div class="flex gap-6 group reveal-left scroll-trigger reveal-active" style="transition-delay: 0.2s;">
+<div class="w-16 h-16 rounded-lg bg-surface-variant flex items-center justify-center shrink-0 border border-border-subtle group-hover:border-primary/50 transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+<span class="material-symbols-outlined text-3xl text-primary">developer_board</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-3">Modern Stack</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Built on Edge computing, serverless functions, and scalable NoSQL databases for future-proof growth.</p>
+</div>
+</div>
+<div class="flex gap-6 group reveal-right scroll-trigger reveal-active" style="transition-delay: 0.4s;">
+<div class="w-16 h-16 rounded-lg bg-surface-variant flex items-center justify-center shrink-0 border border-border-subtle group-hover:border-primary/50 transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+<span class="material-symbols-outlined text-3xl text-primary">support_agent</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] text-on-surface mb-3">Dedicated Support</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Direct lines to senior engineers, not tier-1 chatbots. We treat your infrastructure as our own.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="process">
+<div class="mb-16 md:mb-24 flex flex-col gap-4 reveal-left scroll-trigger reveal-active">
+<h2 class="font-headline-lg text-headline-lg text-on-surface typewriter-target inline-block typewriter-text typewriter-active reveal-active" data-text="Our Process">Our Process</h2>
+<div class="h-1 w-24 bg-primary rounded"></div>
+</div>
+<div class="relative max-w-3xl mx-auto">
+<!-- Vertical Line -->
+<div class="absolute left-[27px] md:left-[39px] top-8 bottom-8 w-px bg-border-subtle z-0 left-6"></div>
+<div class="flex flex-col gap-16 relative z-10">
+<!-- Step 1 -->
+<div class="flex gap-6 md:gap-12 items-start group reveal-right scroll-trigger reveal-active" style="transition-delay: 0.1s;">
+<div class="w-14 h-14 md:w-20 md:h-20 rounded-full bg-surface-container border-2 border-primary flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(45,212,191,0.2)]">
+<span class="font-code-sm text-primary text-xl md:text-2xl">01</span>
+</div>
+<div class="glass-panel p-6 md:p-8 rounded-xl flex-grow group-hover:border-primary/30 transition-colors relative overflow-hidden">
+<div class="absolute -right-8 -top-8 text-[120px] font-display-lg text-surface-variant opacity-20 select-none">1</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-3">Discovery &amp; Blueprinting</h3>
+<p class="font-body-md text-on-surface-variant break-words">We analyze your current architecture, identify bottlenecks, and map out a scalable, high-performance future state tailored to your business objectives.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-6 md:gap-12 items-start group reveal-right scroll-trigger reveal-active" style="transition-delay: 0.3s;">
+<div class="w-14 h-14 md:w-20 md:h-20 rounded-full bg-surface-container border-2 border-border-subtle group-hover:border-primary/50 transition-colors flex items-center justify-center shrink-0 relative z-10">
+<span class="font-code-sm text-on-surface-variant text-xl md:text-2xl group-hover:text-primary transition-colors">02</span>
+</div>
+<div class="glass-panel p-6 md:p-8 rounded-xl flex-grow group-hover:border-primary/30 transition-colors relative overflow-hidden">
+<div class="absolute -right-8 -top-8 text-[120px] font-display-lg text-surface-variant opacity-20 select-none">2</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-3">Development &amp; Integration</h3>
+<p class="font-body-md text-on-surface-variant break-words">Our engineers construct the new environment, integrating required APIs and establishing robust CI/CD pipelines for seamless future updates.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-6 md:gap-12 items-start group reveal-right scroll-trigger reveal-active" style="transition-delay: 0.5s;">
+<div class="w-14 h-14 md:w-20 md:h-20 rounded-full bg-surface-container border-2 border-border-subtle group-hover:border-primary/50 transition-colors flex items-center justify-center shrink-0 relative z-10">
+<span class="font-code-sm text-on-surface-variant text-xl md:text-2xl group-hover:text-primary transition-colors">03</span>
+</div>
+<div class="glass-panel p-6 md:p-8 rounded-xl flex-grow group-hover:border-primary/30 transition-colors relative overflow-hidden">
+<div class="absolute -right-8 -top-8 text-[120px] font-display-lg text-surface-variant opacity-20 select-none">3</div>
+<h3 class="font-headline-md text-[24px] text-on-surface mb-3">Deployment &amp; Monitoring</h3>
+<p class="font-body-md text-on-surface-variant break-words">We execute a zero-downtime migration, followed by 24/7 active monitoring of system pulse, traffic anomalies, and performance metrics.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="py-24 bg-surface-deep border-t border-border-subtle relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-surface-deep to-surface-deep"></div>
+<div class="max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10 reveal-up scroll-trigger reveal-active">
+<span class="material-symbols-outlined text-6xl text-primary/30 mb-6 block">format_quote</span>
+<blockquote class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface mb-8 leading-tight break-words">
+                    "We are the foundation you need if you wish to grow."
+                </blockquote>
+<div class="inline-block glass-panel px-6 py-3 rounded-full border-primary/20">
+<span class="font-label-caps text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                        Deployments typically <span class="text-white">Under 24 hours</span>
+</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dim border-t border-border-subtle w-full py-12 text-on-surface">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4 col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-primary font-headline-md"><img alt="SiteSmith Logo" class="h-16 w-auto object-contain brightness-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFHXp4wesDhg8QXttnqA4UXWhyMxPZis2sf3KM1dBBRz2dFYZQknx-4_4M0M7OmwnMKTMh0JdHPno_GVZg0uFOUOTMPDYP7zPa6UcyMgsKr8LdSt_BTaVmi1KVhPrHYxEP3eYFwFBrtwz-XQUjrIeGEcZ2vekfgzny-SNzjed5sdlKF-d9qthjZwUcF0y-Rf9lQ_PEWZIdLjLVsCPAvtFMB1G-eEH46BzIj_ieV5DRzuSvZ9CpUaJdMfCAUR3tB7jmFQ"></div>
+<p class="font-body-md text-text-muted mt-2">Digital Infrastructure Partner</p>
+<div class="flex items-center gap-2 mt-4 text-primary font-label-caps bg-surface-container-low px-3 py-1.5 rounded w-fit border border-border-subtle">
+<span class="w-1.5 h-1.5 rounded-full bg-primary pulse-dot"></span>
+                     All Systems Normal
+                </div>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-on-surface-variant mb-2 tracking-wider">Solutions</h4>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Static Sites</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Interactive Frontend</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Full-Stack</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Enterprise</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-on-surface-variant mb-2 tracking-wider">Resources</h4>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Documentation</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">API Reference</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">System Status</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Architecture Guides</a>
+</div>
+<!-- Links Column 3 (From JSON) -->
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-on-surface-variant mb-2 tracking-wider">Legal &amp; Support</h4>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">System Status</a>
+<a class="font-body-md text-text-muted hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-12 pt-8 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-text-muted text-sm">© 2024 SiteSmith Infrastructure. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="text-text-muted hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined"></span></a></div></div></footer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    
+                    // Handle typewriter effects
+                    if (entry.target.classList.contains('typewriter-target')) {
+                         entry.target.classList.add('typewriter-text', 'typewriter-active');
+                         entry.target.textContent = entry.target.getAttribute('data-text');
+                    }
+                    // Handle nested typewriter elements
+                    const nestedTypewriters = entry.target.querySelectorAll('.typewriter-target');
+                    nestedTypewriters.forEach(nested => {
+                         nested.classList.add('typewriter-text', 'typewriter-active');
+                         nested.textContent = nested.getAttribute('data-text');
+                    });
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-trigger, .typewriter-target').forEach((element) => {
+            observer.observe(element);
+        });
+    });
+</script>
+
+
+
+
+</body></html>
