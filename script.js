@@ -17,23 +17,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSubmitText = document.getElementById('btn-submit-text');
 
     // ----------------------------------------------------
-    // Initialize Lenis Smooth Scroll
     // ----------------------------------------------------
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1.0,
-        smoothTouch: false
-    });
+    // Initialize Lenis Smooth Scroll (Desktop Only)
+    // ----------------------------------------------------
+    let lenis = null;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches || ('ontouchstart' in window);
 
-    function raf(time) {
-        lenis.raf(time);
+    if (!isMobile) {
+        lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1.0,
+            smoothTouch: false
+        });
+
+        function raf(time) {
+            if (lenis) lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+
+    // Scroll helper that routes through Lenis on desktop and native smooth scroll on mobile
+    function customScrollTo(targetEl, offset = 80) {
+        if (targetEl) {
+            if (lenis) {
+                lenis.scrollTo(targetEl, { offset: -offset });
+            } else {
+                const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: targetPos,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
 
     // ----------------------------------------------------
     // Sticky Navbar & Active Section Tracking
@@ -117,10 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', toggleMenu);
         
-        // Close menu when a link inside it is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
+        // Close menu when a link or button inside it is clicked
+        const mobileInteractions = mobileMenu.querySelectorAll('a, button');
+        mobileInteractions.forEach(el => {
+            el.addEventListener('click', () => {
                 toggleMenu();
             });
         });
@@ -250,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const contactSection = document.getElementById('contact');
             if (contactSection) {
                 const navbarHeight = navbar.offsetHeight || 80;
-                lenis.scrollTo(contactSection, { offset: -navbarHeight });
+                customScrollTo(contactSection, navbarHeight);
             }
         });
     });
@@ -286,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Scroll success card into focus if needed
                 const navbarHeight = navbar.offsetHeight || 80;
-                lenis.scrollTo(successState, { offset: -navbarHeight });
+                customScrollTo(successState, navbarHeight);
             }, 1500);
         });
     }
@@ -302,14 +323,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------
-    // Interactive Particle Background
-    // ----------------------------------------------------
     const canvas = document.getElementById('bg-canvas');
     if (canvas) {
+        // Disable particle system on mobile to maximize scroll performance
+        if (window.innerWidth < 768) {
+            canvas.style.display = 'none';
+            return;
+        }
+
         const ctx = canvas.getContext('2d');
         let particles = [];
-        const maxParticles = window.innerWidth < 768 ? 20 : 40;
+        const maxParticles = 40;
         const connectionDist = 120;
         const mouse = { x: null, y: null, radius: 180 };
 
@@ -493,9 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initMagneticButtons();
 
-    // ----------------------------------------------------
-    // Smooth Anchor Scroll (Lenis Eased Navigation)
-    // ----------------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -506,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (targetEl) {
                     e.preventDefault();
                     const navbarHeight = navbar.offsetHeight || 80;
-                    lenis.scrollTo(targetEl, { offset: -navbarHeight });
+                    customScrollTo(targetEl, navbarHeight);
                 }
             } catch (err) {
                 console.warn('Smooth scroll target query failed:', err);

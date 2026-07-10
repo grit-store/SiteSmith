@@ -1,6 +1,10 @@
 /* SiteSmith Custom Stylesheet - Bespoke design variables & overrides */
 
 /* Lenis Smooth Scroll Core Overrides */
+html, body {
+    overflow-x: hidden;
+    background-color: #0D0C0A;
+}
 html.lenis, html.lenis body {
     height: auto;
 }
@@ -75,12 +79,18 @@ html.lenis, html.lenis body {
 
 /* Glassmorphic Panel Styling */
 .glass-panel {
-    background: rgba(35, 33, 30, 0.6);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(35, 33, 30, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.04);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+    .glass-panel {
+        background: rgba(35, 33, 30, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+    }
 }
 
 .glass-panel:hover {
@@ -169,16 +179,26 @@ html.lenis, html.lenis body {
 
 /* Lifted surface — slightly lighter background for alternating sections */
 .section-lifted {
-    background-color: rgba(29, 27, 24, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(29, 27, 24, 0.95);
+}
+@media (min-width: 768px) {
+    .section-lifted {
+        background-color: rgba(29, 27, 24, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 }
 
 /* Dark recessed surface — darker than base for contrast */
 .section-recessed {
-    background-color: rgba(7, 6, 5, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(7, 6, 5, 0.95);
+}
+@media (min-width: 768px) {
+    .section-recessed {
+        background-color: rgba(7, 6, 5, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 }
 
 /* Gradient divider between sections — soft fade from one tone to another */
