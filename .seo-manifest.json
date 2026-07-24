@@ -1,0 +1,48 @@
+{
+  "skill_version": 1,
+  "last_run": "2026-07-24",
+  "changes": [
+    {
+      "file": "index.html",
+      "phase": 4,
+      "what": "Optimized title tag (67 chars), meta description (152 chars), primary H1 header, canonical tag, OG tags, Twitter cards, and ProfessionalService JSON-LD schema with Gujarat, India NAP.",
+      "date": "2026-07-24"
+    },
+    {
+      "file": "examples.html",
+      "phase": 4,
+      "what": "Optimized title tag, meta description, canonical tag, OG tags, and WebPage JSON-LD schema.",
+      "date": "2026-07-24"
+    },
+    {
+      "file": "demo.html",
+      "phase": 4,
+      "what": "Optimized title tag, meta description, canonical tag, OG tags, and Restaurant JSON-LD schema for Iscon Gathiya.",
+      "date": "2026-07-24"
+    },
+    {
+      "file": "legal.html",
+      "phase": 4,
+      "what": "Optimized title tag, meta description, canonical tag, OG tags, and Organization JSON-LD schema.",
+      "date": "2026-07-24"
+    }
+  ],
+  "schema_blocks": [
+    {
+      "file": "index.html",
+      "type": "ProfessionalService"
+    },
+    {
+      "file": "examples.html",
+      "type": "WebPage"
+    },
+    {
+      "file": "demo.html",
+      "type": "Restaurant"
+    },
+    {
+      "file": "legal.html",
+      "type": "Organization"
+    }
+  ]
+}
