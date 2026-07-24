@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 
 export default function Home() {
@@ -55,28 +56,25 @@ export default function Home() {
 
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="relative min-h-[85vh] flex items-center justify-start px-margin-mobile md:px-margin-desktop py-20" id="hero">
+        <section className="relative min-h-[90vh] flex items-center justify-start overflow-hidden px-margin-mobile md:px-margin-desktop py-24" id="hero">
           <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-start gap-8">
             <div className="text-primary font-code-sm text-xs tracking-widest uppercase font-semibold">
-              OpenCurb Media &mdash; Web &amp; App Development Agency in Gujarat, India
+              OpenCurb Media &mdash; Digital Service Agency
             </div>
 
-            <h1 className="font-display-lg text-[34px] sm:text-[42px] md:text-[76px] leading-[1.2] text-on-surface tracking-tight text-left max-w-4xl font-bold">
-              Web &amp; App Development Agency in <span className="text-primary">Gujarat, India</span>
+            <h1 className="font-display-lg text-[34px] sm:text-[42px] md:text-[76px] leading-[1.3] text-on-surface tracking-tight text-left max-w-4xl font-bold">
+              We are the <span className="text-primary">foundation</span> you need if you wish to grow.
             </h1>
-            <p className="font-headline-md text-xl sm:text-2xl text-primary font-medium mt-1">
-              We are the foundation you need if you wish to grow.
-            </p>
 
             <p className="font-body-lg text-body-lg text-on-surface-variant text-left max-w-2xl">
               OpenCurb Media builds high-performance websites, custom mobile apps, and robust software infrastructure for growing businesses under a simple retainer.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="bg-primary text-background px-8 py-4 rounded font-label-caps text-[14px] hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(201,169,110,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-center font-semibold">
+              <a href="#contact" className="bg-primary text-background px-8 py-4 rounded font-label-caps text-[14px] hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(201,169,110,0.4)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto text-center flex items-center justify-center font-semibold">
                 Book a Consultation &rarr;
               </a>
-              <a href="#pricing" className="bg-transparent text-on-surface px-8 py-4 rounded border border-border-subtle font-label-caps text-[14px] hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-300 text-center">
+              <a href="#pricing" className="bg-transparent text-on-surface px-8 py-4 rounded border border-border-subtle font-label-caps text-[14px] hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center">
                 View Packages
               </a>
             </div>
@@ -102,9 +100,9 @@ export default function Home() {
                 ₹5,000<span className="font-body-md text-sm text-text-muted">/mo</span>
               </div>
               <ul className="flex flex-col font-body-md text-on-surface-variant gap-3 mb-6">
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Custom static frontend structure</li>
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Fully responsive mobile layouts</li>
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Automated SSL setup</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Custom static frontend structure</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Fully responsive mobile layouts</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Automated SSL setup</li>
               </ul>
               <a href="#contact" onClick={() => setSelectedPlan('static')} className="w-full bg-surface-container-high border border-border-subtle text-on-surface py-3 rounded font-label-caps hover:border-primary hover:text-primary transition-all text-center">
                 Select Package
@@ -122,9 +120,9 @@ export default function Home() {
                 ₹15,000<span className="font-body-md text-sm text-text-muted">/mo</span>
               </div>
               <ul className="flex flex-col font-body-md text-on-surface-variant gap-3 mb-6">
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Full-stack web application</li>
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Custom API &amp; Database integration</li>
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Continuous feature deployments</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Full-stack web application</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Custom API &amp; Database integration</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Continuous feature deployments</li>
               </ul>
               <a href="#contact" onClick={() => setSelectedPlan('webapp')} className="w-full bg-primary text-background py-3 rounded font-label-caps hover:bg-primary-fixed transition-all text-center font-semibold">
                 Select Package
@@ -141,13 +139,109 @@ export default function Home() {
                 Custom Retainer
               </div>
               <ul className="flex flex-col font-body-md text-on-surface-variant gap-3 mb-6">
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Mobile apps (iOS &amp; Android)</li>
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Dedicated developer resources</li>
-                <li className="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Custom digital infrastructure</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Mobile apps (iOS &amp; Android)</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Dedicated developer resources</li>
+                <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Custom digital infrastructure</li>
               </ul>
               <a href="#contact" onClick={() => setSelectedPlan('custom')} className="w-full bg-surface-container-high border border-border-subtle text-on-surface py-3 rounded font-label-caps hover:border-primary hover:text-primary transition-all text-center">
                 Request Quote
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Work Showcase Section */}
+        <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-16" id="work">
+          <div className="mb-16 flex flex-col gap-4">
+            <span className="font-code-sm text-primary text-xs tracking-widest uppercase font-semibold">Client Portfolio</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface">Client Projects in Production</h2>
+            <div className="h-0.5 w-16 bg-primary rounded"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="glass-panel rounded-2xl p-8 flex flex-col justify-between border border-border-subtle">
+              <div>
+                <span className="text-primary text-xs font-code-sm uppercase tracking-widest mb-2 block">Interactive Digital Menu</span>
+                <h3 className="text-2xl font-bold text-on-surface mb-3">Iscon Gathiya (Junagadh)</h3>
+                <p className="text-on-surface-variant font-body-md mb-6">
+                  An immersive glassmorphic digital restaurant menu featuring category filtering, live plate management, and dish customization.
+                </p>
+              </div>
+              <Link to="/demo" className="text-primary font-label-caps hover:underline font-semibold">
+                Launch Live Demo &rarr;
+              </Link>
+            </div>
+
+            <div className="glass-panel rounded-2xl p-8 flex flex-col justify-between border border-border-subtle">
+              <div>
+                <span className="text-primary text-xs font-code-sm uppercase tracking-widest mb-2 block">Retainer Platform</span>
+                <h3 className="text-2xl font-bold text-on-surface mb-3">OpenCurb Media Platform</h3>
+                <p className="text-on-surface-variant font-body-md mb-6">
+                  High-performance web architecture featuring smooth particle canvas physics and reactive retainer packages.
+                </p>
+              </div>
+              <Link to="/work" className="text-primary font-label-caps hover:underline font-semibold">
+                Explore Work Details &rarr;
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Why OpenCurb Media / Infrastructure Section */}
+        <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-16" id="infrastructure">
+          <div className="mb-16 flex flex-col gap-4">
+            <span className="font-code-sm text-primary text-xs tracking-widest uppercase font-semibold">The Infrastructure Advantage</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface">Why OpenCurb Media</h2>
+            <div className="h-0.5 w-16 bg-primary rounded"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="glass-panel rounded-xl p-8">
+              <span className="material-symbols-outlined text-primary text-4xl mb-4">bolt</span>
+              <h3 className="text-xl font-bold text-on-surface mb-2">High Performance</h3>
+              <p className="text-on-surface-variant text-sm">Lightweight frontend bundles, fast load speeds, and zero bloat.</p>
+            </div>
+            <div className="glass-panel rounded-xl p-8">
+              <span className="material-symbols-outlined text-primary text-4xl mb-4">search_check</span>
+              <h3 className="text-xl font-bold text-on-surface mb-2">Built-In SEO</h3>
+              <p className="text-on-surface-variant text-sm">Schema.org structured data, canonical tags, and keyword-optimized headers.</p>
+            </div>
+            <div className="glass-panel rounded-xl p-8">
+              <span className="material-symbols-outlined text-primary text-4xl mb-4">sync</span>
+              <h3 className="text-xl font-bold text-on-surface mb-2">Continuous Updates</h3>
+              <p className="text-on-surface-variant text-sm">Simple retainer subscription covering deployment, updates, and maintenance.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-16" id="process">
+          <div className="mb-16 flex flex-col gap-4">
+            <span className="font-code-sm text-primary text-xs tracking-widest uppercase font-semibold">How We Work</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface">Our Process</h2>
+            <div className="h-0.5 w-16 bg-primary rounded"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="glass-panel rounded-xl p-6">
+              <span className="text-primary font-display-lg text-3xl font-bold mb-2 block">01</span>
+              <h4 className="text-lg font-bold text-on-surface mb-2">Consultation</h4>
+              <p className="text-text-muted text-sm">We understand your business goals and technical scope.</p>
+            </div>
+            <div className="glass-panel rounded-xl p-6">
+              <span className="text-primary font-display-lg text-3xl font-bold mb-2 block">02</span>
+              <h4 className="text-lg font-bold text-on-surface mb-2">Architecture</h4>
+              <p className="text-text-muted text-sm">We design modern UI wireframes and database schemas.</p>
+            </div>
+            <div className="glass-panel rounded-xl p-6">
+              <span className="text-primary font-display-lg text-3xl font-bold mb-2 block">03</span>
+              <h4 className="text-lg font-bold text-on-surface mb-2">Development</h4>
+              <p className="text-text-muted text-sm">We build your web or mobile app under a simple retainer.</p>
+            </div>
+            <div className="glass-panel rounded-xl p-6">
+              <span className="text-primary font-display-lg text-3xl font-bold mb-2 block">04</span>
+              <h4 className="text-lg font-bold text-on-surface mb-2">Launch &amp; Scale</h4>
+              <p className="text-text-muted text-sm">We deploy to SSL production servers and optimize performance.</p>
             </div>
           </div>
         </section>
