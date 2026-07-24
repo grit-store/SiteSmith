@@ -7,7 +7,7 @@
   - Name: OpenCurb Media
   - Address: Gujarat, India
   - Phone: +91 8320050530
-- Website URL: http://localhost:8000
+- Website URL: https://opencurbmedia.site
 - Primary service area / market: Gujarat, India (and pan-India)
 
 ## Services
